@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { HeaderConfig, ILink } from 'src/app/configs/header-config';
 import { SubMenuModalComponent } from '../sub-menu-modal/sub-menu-modal.component';
@@ -8,15 +8,17 @@ import { SubMenuModalComponent } from '../sub-menu-modal/sub-menu-modal.componen
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   headerMenuConfig = HeaderConfig.menu;
-  // match with routerLink
-  isActive: string = '';
-  bsModalRef?: BsModalRef
+  isMenuOpen?: boolean = false;
+  bsModalRef?: BsModalRef;
+  @ViewChild('openMenu', {static: true}) btnOpenMenu?: ElementRef;
 
   constructor(
     private modalService: BsModalService
   ) { }
+  ngAfterViewInit(): void {
+  }
 
   ngOnInit(): void {
   }
@@ -29,6 +31,9 @@ export class HeaderComponent implements OnInit {
       }
     };
     this.bsModalRef = this.modalService.show(SubMenuModalComponent, inititalState);
-    this.bsModalRef.content.closeBtnName = 'Đóng';
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.btnOpenMenu?.nativeElement?.classList.contains('collapsed');
   }
 }

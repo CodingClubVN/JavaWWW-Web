@@ -10,7 +10,6 @@ import { ILink } from 'src/app/configs/header-config';
 export class SubMenuModalComponent implements OnInit {
   title?: string;
   data?: ILink;
-  closeBtnName?: string;
 
   constructor(
     public bsModalRef: BsModalRef

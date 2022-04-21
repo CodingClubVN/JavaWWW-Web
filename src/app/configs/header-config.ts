@@ -9,10 +9,6 @@ export interface ILink {
 export const HeaderConfig: {menu: ILink[]} = {
   menu: [
     {
-      name: 'Home',
-      url: '/home',
-    },
-    {
       name: 'Các dòng xe',
       url: '/cars',
       icon: 'fa fa-car',

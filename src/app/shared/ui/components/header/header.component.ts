@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { HeaderConfig } from 'src/app/configs/header-config';
 import { ILink } from 'src/app/models/i-link-model';
@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   isUserCartOpen?: boolean = false;
   bsModalRef?: BsModalRef;
   @ViewChild('openMenu', {static: true}) btnOpenMenu?: ElementRef;
+  @ViewChild('account') accountERef!: ElementRef;
+  @ViewChild('cart') cartRef!: ElementRef;
 
   constructor(
     private modalService: BsModalService
@@ -48,5 +50,15 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   toggleUserCart(): void {
     this.isUserCartOpen = !this.isUserCartOpen;
     this.isUserPanelOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickOut(event: any) {
+    if (!this.accountERef.nativeElement.contains(event.target)) {
+      this.isUserPanelOpen = false;
+    }
+    if (!this.cartRef.nativeElement.contains(event.target)) {
+      this.isUserCartOpen = false;
+    }
   }
 }

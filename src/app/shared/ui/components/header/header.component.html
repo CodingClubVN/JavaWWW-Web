@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-xl bg-dark">
+<nav class="navbar navbar-expand-xl bg-dark shadow-lg">
   <div class="container-fluid global-width mx-auto">
     <a class="navbar-brand me-3" href="#">
       <img src="../../../../../assets/Coding_club_logo.png" alt="logo" width="40" height="40">
     </a>
-    <button #openMenu (click)="toggleMenu()" class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button #openMenu (click)="toggleMenu()" class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
         <i [class]="'text-dark fas fa-' + (isMenuOpen ? 'times' : 'bars')"></i>
       </span>
@@ -11,18 +13,45 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
         <li class="nav-item" *ngFor="let link of headerMenuConfig">
-          <a (click)="link?.subMenu == null ? null : openSubMenuModal(link)" class="nav-link cursor-pointer" [routerLink]="link?.subMenu == null ? [link.url] : null" routerLinkActive="active" >{{ link.name }}</a>
+          <a (click)="link?.subMenu == null ? null : openSubMenuModal(link)" class="nav-link cursor-pointer"
+            [routerLink]="link?.subMenu == null ? [link.url] : null" routerLinkActive="active">{{ link.name }}</a>
         </li>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <button class="ms-2 btn btn-transparent">
-        <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
-          <i class="fas fa-user"></i>
-        </span>
-      </button>
+      <div class="position-relative">
+        <button class="ms-2 btn btn-transparent" (click)="toggleUserCart()">
+          <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+        </button>
+        <div *ngIf="isUserCartOpen"
+          class="position-absolute rounded rounded-3 bg-light user-cart d-flex justify-content-between">
+          <app-user-cart-modal></app-user-cart-modal>
+        </div>
+      </div>
+      <div class="position-relative">
+        <button class="ms-2 btn btn-transparent" (click)="toggleUserPanel()">
+          <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
+            <i class="fas fa-user"></i>
+          </span>
+        </button>
+        <div *ngIf="isUserPanelOpen"
+          class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel d-flex justify-content-between p-3">
+          <button class="btn btn-primary" [routerLink]="['/auth', 'login']" (click)="isUserPanelOpen = false">
+            <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
+              Đăng nhập
+            </span>
+          </button>
+          <button class="btn btn-secondary" [routerLink]="['/auth', 'register']" (click)="isUserPanelOpen = false">
+            <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
+              Đăng ký
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

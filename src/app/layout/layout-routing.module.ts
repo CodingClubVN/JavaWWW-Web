@@ -14,6 +14,11 @@ const routes: Routes = [
       },
       {
         path: 'home',
+      },
+      {
+        path: 'auth',
+        loadChildren: () => import('../modules/auth/auth.module')
+          .then(m => m.AuthModule)
       }
     ]
   }

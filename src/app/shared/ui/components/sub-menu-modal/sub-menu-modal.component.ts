@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { ILink } from 'src/app/configs/header-config';
+import { ILink } from 'src/app/models/i-link-model';
 
 @Component({
   selector: 'app-sub-menu-modal',

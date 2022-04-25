@@ -1,10 +1,4 @@
-export interface ILink {
-  name: string;
-  url: string;
-  icon?: string;
-  subMenu?: ILink[];
-  subMenu2?: ILink[];
-}
+import { ILink } from "../models/i-link-model";
 
 export const HeaderConfig: {menu: ILink[]} = {
   menu: [

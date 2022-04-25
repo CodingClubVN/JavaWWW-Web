@@ -5,19 +5,23 @@ import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { SubMenuModalComponent } from './components/sub-menu-modal/sub-menu-modal.component'
+import { SubMenuModalComponent } from './components/sub-menu-modal/sub-menu-modal.component';
+import { UserCartModalComponent } from './components/user-cart-modal/user-cart-modal.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
     NotFoundComponent,
-    SubMenuModalComponent
+    SubMenuModalComponent,
+    UserCartModalComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FormsModule
   ],
   exports: [
     FooterComponent,

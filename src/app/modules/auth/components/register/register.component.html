@@ -1,0 +1,45 @@
+<div class="px-2 px-sm-5 d-flex align-items-center bg-light rounded rounded-3">
+  <div class="card-body p-4 p-lg-5 text-dark">
+    <form>
+
+      <div class="d-flex align-items-center mb-3 pb-1">
+        <img src="../../../../../assets/Coding_club_logo.png" alt="logo">
+        <span class="h1 fw-bold mb-0 text-dark">Coding Club Showroom</span>
+      </div>
+
+      <h5 class="fw-normal mb-3 pb-3 text-dark" style="letter-spacing: 1px;">Đăng ký!</h5>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="email" id="email" class="form-control form-control-lg" placeholder="Email" />
+        <label class="form-label text-dark" for="email">Email</label>
+      </div>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" />
+        <label class="form-label text-dark" for="password">Password</label>
+      </div>
+
+      <div class="form-outline mb-2 form-floating">
+        <input type="password" id="cf-password" class="form-control form-control-lg" placeholder="Confirm Password" />
+        <label class="form-label text-dark" for="cf-password">Confirm Password</label>
+      </div>
+
+      <div class="form-check mb-4">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label text-dark" for="flexCheckDefault">
+          Đồng ý với điều khoản và điều kiện của chúng tôi!
+        </label>
+      </div>
+
+      <div class="pt-1 mb-4">
+        <button class="btn btn-dark btn-lg btn-block" type="button">Đăng ký</button>
+      </div>
+
+      <p class="mb-5 pb-lg-2 text-dark" style="color: #393f81;">Đã có tài khoản? <a [routerLink]="['/auth', 'login']"
+          style="color: #393f81 !important;">Đăng nhập</a></p>
+      <a href="#!" class="small text-muted">Điều khoản sử dụng</a>
+      <a href="#!" class="small text-muted ms-3">Chính sách</a>
+    </form>
+
+  </div>
+</div>

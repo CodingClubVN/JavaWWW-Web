@@ -1,0 +1,14 @@
+.user-cart {
+  width: 250px;
+  height: 350px;
+  .list {
+    height: 200px;
+    overflow: auto;
+    .list-item {
+      .item-img {
+        width: 40px !important;
+        height: 40px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.menu-modal {
+  height: 80vh;
+
+  .modal-body {
+    .modal-title {
+      color: black !important;
+    }
+    ul li {
+      a {
+        span {
+          color: black !important;
+        }
+      }
+    }
+  }
+}

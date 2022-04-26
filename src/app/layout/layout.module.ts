@@ -5,6 +5,8 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { HomeComponent } from './components/home/home.component';
 import { UiModule } from '../shared/ui/ui.module';
+import { RouterModule } from '@angular/router';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { UiModule } from '../shared/ui/ui.module';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    UiModule
+    UiModule,
+    RouterModule,
+    CarouselModule
   ]
 })
 export class LayoutModule { }

@@ -26,6 +26,15 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.addClass();
+  }
+  addClass(): void{
+    // tslint:disable-next-line:only-arrow-functions typedef
+    window.addEventListener('scroll', function(){
+      const menu = document.querySelector('nav');
+      // @ts-ignore
+      menu.classList.toggle('sticky', window.scrollY > 85);
+    });
   }
 
   openSubMenuModal(data: ILink): void {

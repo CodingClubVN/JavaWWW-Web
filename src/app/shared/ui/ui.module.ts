@@ -8,6 +8,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { SubMenuModalComponent } from './components/sub-menu-modal/sub-menu-modal.component';
 import { UserCartModalComponent } from './components/user-cart-modal/user-cart-modal.component'
 import { FormsModule } from '@angular/forms';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     NotFoundComponent,
     SubMenuModalComponent,
-    UserCartModalComponent
+    UserCartModalComponent,
+    ProductCardComponent
   ],
   imports: [
     CommonModule,

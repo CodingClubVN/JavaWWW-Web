@@ -7,6 +7,9 @@
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
+@import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
 * {
   color: white !important;
   font-family: "Roboto";
@@ -61,13 +64,12 @@ input[type="number"] {
   overflow-y: overlay !important;
   padding-right: 18px;
   &::-webkit-scrollbar {
-    width: 18px;
+    width: 10px;
     background-color: transparent !important;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: gray;
-    border: 5px solid transparent;
     background-clip: padding-box;
   }
 
@@ -79,13 +81,12 @@ input[type="number"] {
 body {
   overflow-y: overlay !important;
   &::-webkit-scrollbar {
-    width: 18px;
+    width: 10px;
     background-color: transparent !important;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: gray;
-    border: 5px solid transparent;
     background-clip: padding-box;
   }
 

@@ -1,18 +1,43 @@
-*{
+* {
   color: black !important;
 }
+
 .container-custom {
   margin: 0 6% !important;
 }
-.col-1{
+
+.col-1 {
   padding: 10px 20px !important;
   width: 10% !important;
 }
-button{
+
+button {
   background: none !important;
   border: 1px solid #BBBBBB !important;
 }
-.btn-active{
+
+.btn-active {
   background-color: black !important;
   color: white !important;
+}
+
+.content-product {
+  border-left: 1px solid lightgrey;
+}
+
+.list-product-type a:hover {
+  & path {
+    fill: #0078D6;
+  }
+
+  & p {
+    color: #0078D6 !important;
+  }
+}
+.list-btn-category button:hover{
+  background-color: #F1F3F4 !important;
+  color: black !important;
+}
+.show-all a:hover{
+  color: #0078D6 !important;
 }

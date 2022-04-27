@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-
+  imageStatus = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

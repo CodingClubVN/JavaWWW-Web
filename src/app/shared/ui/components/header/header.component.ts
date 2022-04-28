@@ -14,10 +14,14 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   isMenuOpen?: boolean = false;
   isUserPanelOpen?: boolean = false;
   isUserCartOpen?: boolean = false;
+  isUserCartResponsiveOpen?: boolean = false;
+  isUserPanelResponsiveOpen?: boolean = false;
   bsModalRef?: BsModalRef;
   @ViewChild('openMenu', {static: true}) btnOpenMenu?: ElementRef;
   @ViewChild('account') accountERef!: ElementRef;
   @ViewChild('cart') cartRef!: ElementRef;
+  @ViewChild('accountResponsive') accountResponsive!: ElementRef;
+  @ViewChild('cartResponsive') cartResponsive!: ElementRef;
 
   constructor(
     private modalService: BsModalService
@@ -61,6 +65,16 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.isUserPanelOpen = false;
   }
 
+  toggleUserPanelResponsive() {
+    this.isUserPanelResponsiveOpen = !this.isUserPanelResponsiveOpen;
+    this.isUserCartResponsiveOpen = false;
+  }
+
+  toggleUserCartResponsive() {
+    this.isUserCartResponsiveOpen = !this.isUserCartResponsiveOpen;
+    this.isUserPanelResponsiveOpen = false;
+  }
+
   @HostListener('document:click', ['$event'])
   clickOut(event: any) {
     if (!this.accountERef.nativeElement.contains(event.target)) {
@@ -68,6 +82,12 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
     if (!this.cartRef.nativeElement.contains(event.target)) {
       this.isUserCartOpen = false;
+    }
+    if (!this.accountResponsive.nativeElement.contains(event.target)) {
+      this.isUserPanelResponsiveOpen = false;
+    }
+    if (!this.cartResponsive.nativeElement.contains(event.target)) {
+      this.isUserCartResponsiveOpen = false;
     }
   }
 }

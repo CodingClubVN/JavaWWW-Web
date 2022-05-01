@@ -25,10 +25,11 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     ModalModule.forRoot(),
     FormsModule
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent,
-    NotFoundComponent
-  ]
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        NotFoundComponent,
+        ProductCardComponent
+    ]
 })
 export class UiModule { }

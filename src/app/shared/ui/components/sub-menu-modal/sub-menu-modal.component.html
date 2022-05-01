@@ -3,19 +3,19 @@
     <div class="d-flex justify-content-between mb-3">
       <h4 class="modal-title pull-left">{{ title }}</h4>
       <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
-        <i class="fa fa-times"></i>
+        <i class="fa fa-times text-dark"></i>
       </button>
     </div> 
-    <ul *ngIf="data?.subMenu?.length" class="p-0">
+    <ul *ngIf="data?.subMenu?.length" class="p-0 overflow-auto">
       <li class="list-group" *ngFor="let item of data?.subMenu">
         <a class="list-group-item list-group-item-action border-0" [routerLink]="data?.url + item.url">
-          <i *ngIf="item.icon" class="fa fa-fw fa-{{ item.icon }}"></i>
+          <i *ngIf="item.icon" [class]="'text-dark me-2 ' + item.icon"></i>
           <span>{{ item.name }}</span>
         </a>
       </li>
       <li class="list-group" *ngFor="let item of data?.subMenu2">
         <a class="list-group-item list-group-item-action border-0" [routerLink]="data?.url + item.url">
-          <i *ngIf="item.icon" class="fa fa-fw fa-{{ item.icon }}"></i>
+          <i *ngIf="item.icon" [class]="'text-dark me-2 ' + item.icon "></i>
           <span>{{ item.name }}</span>
         </a>
       </li>

@@ -1,16 +1,18 @@
 .menu-modal {
-  height: 80vh;
 
   .modal-body {
     .modal-title {
       color: black !important;
     }
-    ul li {
-      a {
-        span {
-          color: black !important;
+    ul {
+      max-height: 60vh;
+      overflow-y: scroll;
+      li {
+        a {
+          span {
+            color: black !important;
+          }
         }
       }
-    }
-  }
+    }   }
 }

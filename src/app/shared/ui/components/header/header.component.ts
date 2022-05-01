@@ -23,6 +23,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('accountResponsive') accountResponsive!: ElementRef;
   @ViewChild('cartResponsive') cartResponsive!: ElementRef;
 
+  // login logic 
+  isLoggedIn: boolean = false;
+
   constructor(
     private modalService: BsModalService
   ) { }
@@ -77,16 +80,16 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   @HostListener('document:click', ['$event'])
   clickOut(event: any) {
-    if (!this.accountERef.nativeElement.contains(event.target)) {
+    if (!this.accountERef?.nativeElement.contains(event.target)) {
       this.isUserPanelOpen = false;
     }
-    if (!this.cartRef.nativeElement.contains(event.target)) {
+    if (!this.cartRef?.nativeElement.contains(event.target)) {
       this.isUserCartOpen = false;
     }
-    if (!this.accountResponsive.nativeElement.contains(event.target)) {
+    if (!this.accountResponsive?.nativeElement.contains(event.target)) {
       this.isUserPanelResponsiveOpen = false;
     }
-    if (!this.cartResponsive.nativeElement.contains(event.target)) {
+    if (!this.cartResponsive?.nativeElement.contains(event.target)) {
       this.isUserCartResponsiveOpen = false;
     }
   }

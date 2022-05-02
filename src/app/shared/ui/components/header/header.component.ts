@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('cartResponsive') cartResponsive!: ElementRef;
 
   // login logic 
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = true;
 
   constructor(
     private modalService: BsModalService

@@ -1,6 +1,6 @@
 import { ILink } from "../models/i-link-model";
 
-export const HeaderConfig: {menu: ILink[]} = {
+export const HeaderConfig: { menu: ILink[] } = {
   menu: [
     {
       name: 'Các dòng xe',

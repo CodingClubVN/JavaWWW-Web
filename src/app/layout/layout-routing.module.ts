@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import {HomeComponent} from "./components/home/home.component";
+import { HomeComponent } from "./components/home/home.component";
 
 const routes: Routes = [
   {
@@ -21,6 +21,12 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('../modules/auth/auth.module')
           .then(m => m.AuthModule)
+      },
+      {
+        path: 'admin-dashboard',
+        loadChildren: () => import('../modules/admin-dashboard/admin-dashboard.module')
+          .then(m => m.AdminDashboardModule)
+        // router guard for admin here
       }
     ]
   }

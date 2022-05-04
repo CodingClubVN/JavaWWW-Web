@@ -1,6 +1,6 @@
-import {ImageDTO} from "./imageDTO";
+import {IImageDTO} from "./i-imageDTO";
 
-export class ProductModel{
+export class IProductModel {
   id: number | undefined;
   name: string | undefined;
   price: number | undefined;
@@ -8,5 +8,5 @@ export class ProductModel{
   bodyType: string | undefined;
   createdDate: Date | undefined;
   updatedDate: Date | undefined;
-  imageDTOs: ImageDTO[] | undefined;
+  imageDTOs: IImageDTO[] | undefined;
 }

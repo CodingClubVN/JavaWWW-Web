@@ -16,7 +16,12 @@ export class ListProductComponent implements OnInit {
     this.productService.getProducts().subscribe(res => {
       this.listProduct = res;
       console.log(this.listProduct);
-    });
+    },
+      error => {
+        if(error.status === 500){
+          return;
+        }
+      });
   }
 
 }

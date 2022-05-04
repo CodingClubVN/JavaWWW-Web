@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import {NotifyService} from "../../../../services/notify/notify.service";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private notifyService: NotifyService
   ) {
     this.registerForm = this.initRegisterForm();
   }
@@ -30,9 +32,18 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     const registerData = this.registerForm.getRawValue();
     if(registerData.password != registerData.comfirmPassword) {
-      console.log('Password not match');
+      this.notifyService.error("Xác nhận mật khẩu không hợp lệ");
       return;
     }
-    this.authService.createUser(registerData.username, registerData.password);
+    this.authService.createUser(registerData.username, registerData.password).subscribe(
+      res => {
+        this.notifyService.success('Đăng kí tài khoản thành công');
+        this.registerForm.reset();
+        console.log(res);
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 }

@@ -45,6 +45,8 @@ $CC-JavaWWW-Web-theme: mat.define-light-theme((
 @import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
+@import '~ngx-toastr/toastr';
+
 * {
   color: white !important;
   font-family: "Roboto";

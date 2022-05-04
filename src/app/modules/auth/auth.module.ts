@@ -11,6 +11,8 @@ import {ProductService} from "../../services/product/product.service";
 import {AuthService} from "../../services/auth/auth.service";
 import {LocalStorageService} from "ngx-webstorage";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {NotifyService} from "../../services/notify/notify.service";
+import {ToastrService} from "ngx-toastr";
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
   providers:[
     StorageService,
     AuthService,
-    {provide: HTTP_INTERCEPTORS, useClass:  LocalStorageService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass:  LocalStorageService, multi: true},
+    NotifyService,
+    ToastrService
   ]
 })
 export class AuthModule { }

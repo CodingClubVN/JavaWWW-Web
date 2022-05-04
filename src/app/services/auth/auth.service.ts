@@ -27,9 +27,9 @@ export class AuthService {
       )
   }
 
-  createUser(username: string, password: string): Observable<any> {
+  createUser(userName: string, password: string): Observable<any> {
     const registerPath = `${environment.apiPath}/${APIPath.auth.register}`;
-    const registerData = { username, password };
+    const registerData = { userName, password };
     return this.apiService.post(registerPath, registerData);
   }
 }

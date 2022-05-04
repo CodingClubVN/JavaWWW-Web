@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {StorageService} from "./services/storage/storage.service";
 import {AuthService} from "./services/auth/auth.service";
 import {LocalStorageService, NgxWebstorageModule} from "ngx-webstorage";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {LocalStorageService, NgxWebstorageModule} from "ngx-webstorage";
     HttpClientModule,
     BrowserAnimationsModule,
     NgxWebstorageModule.forRoot(),
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

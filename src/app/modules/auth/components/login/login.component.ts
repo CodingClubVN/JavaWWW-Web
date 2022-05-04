@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { ApiService } from 'src/app/services/_core/api.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from 'src/app/services/auth/auth.service';
+import {StorageService} from "src/app/services/storage/storage.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private storageService: StorageService
   ) {
     this.loginForm = this.initLoginForm();
   }
@@ -31,11 +33,17 @@ export class LoginComponent implements OnInit {
     const loginDetail = this.loginForm.getRawValue();
     console.log(loginDetail.username);
     console.log(loginDetail.password);
-    this.authService.userLogin(loginDetail.username, loginDetail.password).subscribe(res => {
-      console.log(res);
-    },
-      error => {
-      console.log(error);
-      });
+    this.authService.userLogin(loginDetail.username, loginDetail.password)
+      .subscribe(res => {
+          this.storageService.saveToken(res.token.toString());
+          this.storageService.saveRole(res.role.toString());
+          window.location.href = '/home';
+          console.log(res);
+          console.log(res.token);
+          console.log(res.role);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }

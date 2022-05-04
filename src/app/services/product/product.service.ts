@@ -16,7 +16,7 @@ const url = environment.apiPath;
 export class ProductService {
   constructor(private apiService: ApiService) { }
   getProducts(): Observable<IProductModel[]>{
-    const path = `${url}${pathUrl.list}`;
+    const path = `${url}/${pathUrl.list}`;
     return this.apiService.get(path).pipe(
       map((res: HttpResponse<any>) => {
         console.log(res);

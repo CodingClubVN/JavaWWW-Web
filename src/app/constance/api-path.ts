@@ -7,5 +7,12 @@ export const APIPath = {
   product: {
     product: 'products',
     list: 'products/list'
-  }
+  },
+  cookie: {
+    ID_KEY:'auth-token',
+    USERNAME_KEY: 'username',
+    Refresh_Token: 'refresh',
+    CART: 'cart',
+    ROLE: 'role'
+  },
 }

@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { HeaderConfig } from 'src/app/configs/header-config';
 import { ILink } from 'src/app/models/i-link-model';
 import { SubMenuModalComponent } from '../sub-menu-modal/sub-menu-modal.component';
+import {StorageService} from "../../../../services/storage/storage.service";
 
 @Component({
   selector: 'app-header',
@@ -23,17 +24,34 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('accountResponsive') accountResponsive!: ElementRef;
   @ViewChild('cartResponsive') cartResponsive!: ElementRef;
 
-  // login logic 
+  // login logic
   isLoggedIn: boolean = true;
 
   constructor(
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private storageService: StorageService
   ) { }
   ngAfterViewInit(): void {
   }
 
   ngOnInit(): void {
+    this.checkLogin();
     this.addClass();
+  }
+  checkLogin(): boolean{
+    const token = this.storageService.getToken();
+    if(token){
+      this.isLoggedIn = true
+      this.isUserPanelResponsiveOpen = true;
+      return true;
+    }else{
+      this.isUserPanelResponsiveOpen = true;
+      this.isLoggedIn = false
+      return false;
+    }
+    console.log(token);
+    console.log(this.isLoggedIn);
+    console.log(this.isUserPanelResponsiveOpen);
   }
 
   addClass(): void{
@@ -92,6 +110,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
     if (!this.cartResponsive?.nativeElement.contains(event.target)) {
       this.isUserCartResponsiveOpen = false;
+    }
+  }
+
+  logout() {
+    this.storageService.signOut();
+    if(!this.checkLogin()){
+      window.location.href = 'auth/login';
     }
   }
 }

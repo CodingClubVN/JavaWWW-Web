@@ -2,13 +2,14 @@
   background-image: linear-gradient(to right, black 2%, transparent 80%), url('/assets/media/all-new-s-class-teaser.webp');
   background-color: whitesmoke !important;
   height: 100vh !important;
+  width: 100vw !important;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: cover;
 }
 
 .container-custom{
-  margin: 0 6% !important;
+  width: 80% !important;
   & h1{
     font-size: 4.5rem;
   }

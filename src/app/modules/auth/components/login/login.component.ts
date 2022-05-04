@@ -29,6 +29,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const loginDetail = this.loginForm.getRawValue();
-    this.authService.userLogin(loginDetail.username, loginDetail.password);  
+    console.log(loginDetail.username);
+    console.log(loginDetail.password);
+    this.authService.userLogin(loginDetail.username, loginDetail.password).subscribe(res => {
+      console.log(res);
+    },
+      error => {
+      console.log(error);
+      });
   }
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiPath: 'https://8c99-171-252-153-194.ap.ngrok.io/api'
+  // apiPath: 'https://8c99-171-252-153-194.ap.ngrok.io/api'
+  apiPath: 'http://localhost:8080/showroom-car-backend/api'
 };
 
 /*

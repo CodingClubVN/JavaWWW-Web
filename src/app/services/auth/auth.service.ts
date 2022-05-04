@@ -14,10 +14,10 @@ export class AuthService {
   ) {
   }
 
-  userLogin(username: string, password: string): void {
-    const loginPath = `${environment.apiPath}/${APIPath.auth.login}`;
-    const loginData = { username, password };
-    this.apiService.post(loginPath, loginData)
+  userLogin(userName: string, password: string): Observable<any> {
+    const loginPath = `${environment.apiPath}${APIPath.auth.login}`;
+    const loginData = { userName, password };
+    return this.apiService.post(loginPath, loginData)
       .pipe(
         map((httpResponse: HttpResponse<any>) => {
           const body = httpResponse.body;

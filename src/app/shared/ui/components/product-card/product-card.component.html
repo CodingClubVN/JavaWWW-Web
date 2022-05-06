@@ -8,7 +8,7 @@
     </div>
     <div class="mt-4" *ngFor="let img of this.productChildren?.imageDTOs">
       <div *ngIf="img.type === 'thumbnail'">
-        <img src="{{img.url}}" width="90%" height="175">
+        <img src="{{this.url}}{{img.id}}" width="90%" height="175">
       </div>
     </div>
   </div>

@@ -15,4 +15,7 @@ export const APIPath = {
     CART: 'cart',
     ROLE: 'role'
   },
+  image: {
+    url: 'https://api.codingclub.codes/cc-car/api/images/'
+  }
 }

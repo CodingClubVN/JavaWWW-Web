@@ -116,7 +116,7 @@ input[type="number"] {
 }
 
 body {
-  overflow-y: scroll !important;
+  overflow-y: auto !important;
   &::-webkit-scrollbar {
     width: 10px;
     background-color: transparent !important;

@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   userLogin(userName: string, password: string): Observable<any> {
-    const loginPath = `${environment.apiPath}${APIPath.auth.login}`;
+    const loginPath = `${environment.apiPath}/${APIPath.auth.login}`;
     const loginData = { userName, password };
     return this.apiService.post(loginPath, loginData)
       .pipe(

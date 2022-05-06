@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard.component';
-import { CarsComponent } from './components/cars/cars.component';
+import { AdminBrandsComponent } from './components/admin-brands/admin-brands.component';
+import { AdminCarsComponent } from './components/admin-cars/admin-cars.component';
 
 const routes: Routes = [{
   path: '',
@@ -14,7 +15,11 @@ const routes: Routes = [{
     },
     {
       path: 'cars',
-      component: CarsComponent
+      component: AdminCarsComponent
+    },
+    {
+      path: 'brands',
+      component: AdminBrandsComponent
     }
   ]
 }];

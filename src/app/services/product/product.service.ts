@@ -26,7 +26,7 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<IProductModel> {
-    const path = `${url}/${pathUrl.list}/${id}`;
+    const path = `${url}/${pathUrl.product}/${id}`;
     return this.apiService.get(path).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;

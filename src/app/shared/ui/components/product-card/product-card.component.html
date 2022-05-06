@@ -1,15 +1,17 @@
 <div>
-  <div class="product-outer text-center m-3">
-    <p style="font-size: 24px">{{this.productChildren?.name}}</p>
-    <p style="font-size: 16px" class="">Giá từ {{this.productChildren?.price | currency: 'VND'}}</p>
-    <div class="d-flex justify-content-center mt-3">
-      <div class="tag px-2">Mới</div>
-      <div class="tag px-2 ms-2">Hot</div>
-    </div>
-    <div class="mt-4" *ngFor="let img of this.productChildren?.imageDTOs">
-      <div *ngIf="img.type === 'thumbnail'">
-        <img src="{{this.url}}{{img.id}}" width="90%" height="175">
+  <div class="product-outer text-center m-3 ">
+    <a href="/product/{{this.productChildren?.id}}" class="text-decoration-none">
+      <p style="font-size: 24px">{{this.productChildren?.name}}</p>
+      <p style="font-size: 16px" class="">Giá từ {{this.productChildren?.price | currency: 'VND'}}</p>
+      <div class="d-flex justify-content-center mt-3">
+        <div class="tag px-2">Mới</div>
+        <div class="tag px-2 ms-2">Hot</div>
       </div>
-    </div>
+      <div class="mt-4" *ngFor="let img of this.productChildren?.imageDTOs">
+        <div *ngIf="img.type === 'thumbnail'">
+          <img src="{{this.url}}{{img.id}}" width="90%" height="175">
+        </div>
+      </div>
+    </a>
   </div>
 </div>

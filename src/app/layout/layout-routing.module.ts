@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { HomeComponent } from "./components/home/home.component";
+import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('../modules/auth/auth.module')
           .then(m => m.AuthModule)
+      },
+      {
+        path: 'product/:id',
+        component: ProductDetailComponent
       }
     ]
   }

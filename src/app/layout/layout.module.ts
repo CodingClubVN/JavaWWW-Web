@@ -8,6 +8,7 @@ import { UiModule } from '../shared/ui/ui.module';
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ListProductComponent } from './components/list-product/list-product.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ListProductComponent } from './components/list-product/list-product.com
     LayoutComponent,
     HomeComponent,
     ListProductComponent,
+    ProductDetailComponent,
   ],
   imports: [
     CommonModule,

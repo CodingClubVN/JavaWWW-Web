@@ -1,0 +1,38 @@
+<h1 mat-dialog-title class="text-dark">{{ brand.id ? 'Chỉnh sửa thông tin hãng' : 'Thêm hãng xe' }}</h1>
+<div mat-dialog-content class="py-3">
+  <div class="row w-100">
+    <div class="col-md-12 col-lg-5 d-flex justify-content-center align-items-center mb-2">
+      <div class="brand-logo rounded rounded-3" id="preview-img">
+        <label class="brand-logo-edit w-100 h-100 rounded rounded-3 d-flex align-items-center justify-content-center" for="logoImg" type="button">
+          <input #imageInput type="file" class="d-none" id="logoImg" accept="image/png, image/jpeg, image/jpg" (change)="processLogoImg(imageInput)">
+          <i class="fas fa-camera fa-3x text-dark"></i>
+        </label>
+      </div>
+    </div>
+    <form [formGroup]="addBrandForm" class="col-md-12 col-lg-7">
+      <div class="form-floating mb-3">
+        <input formControlName="name" type="text" class="form-control text-dark" id="name" placeholder="Tên">
+        <label for="name" class="text-dark">Tên</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input formControlName="country" type="text" class="form-control text-dark" id="country" placeholder="Quốc gia">
+        <label for="country" class="text-dark">Quốc gia</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input formControlName="founderYear" type="text" class="form-control text-dark" id="founderYear" placeholder="Năm thành lập">
+        <label for="founderYear" class="text-dark">Năm thành lập</label>
+      </div>
+      <div class="form-floating">
+        <textarea formControlName="description" class="form-control text-dark" placeholder="Thông tin" id="description" style="height: 100px;"></textarea>
+        <label for="description" class="text-dark">Thông tin</label>
+      </div>
+    </form>
+  </div>
+</div>
+<div mat-dialog-actions class="float-end">
+  <button class="btn btn-danger me-2" (click)="onNoClick()">Đóng</button>
+  <button class="btn btn-info me-2" *ngIf="brand.id">Danh sách xe</button>
+  <button class="btn btn-warning me-2" *ngIf="brand.id" (click)="onDelete()">Xóa</button>
+  <button class="btn btn-success" (click)="onSubmit()" *ngIf="!brand.id">Thêm</button>
+  <button class="btn btn-primary" (click)="onUpdate()" *ngIf="brand.id">Cập nhật</button>
+</div>

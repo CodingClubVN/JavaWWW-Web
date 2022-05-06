@@ -1,8 +1,11 @@
-<div class="w-100 row">
-  <div class="col-2">
-    <app-admin-panel></app-admin-panel>
-  </div>
-  <div class="col">
-    <router-outlet></router-outlet>
+<div class="w-100 vh-100 d-flex flex-column">
+  <app-header></app-header>
+  <div class="row w-100 m-0 p-0 flex-grow-1" style="height: calc(100vh - 66px);">
+    <div class="col-2 m-0 p-0">
+      <app-admin-panel></app-admin-panel>
+    </div>
+    <div class="col" style="height: inherit;">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

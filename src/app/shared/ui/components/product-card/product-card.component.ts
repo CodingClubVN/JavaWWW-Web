@@ -18,7 +18,6 @@ export class ProductCardComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.productChildren){
-      console.log(this.productChildren);
     }
   }
 }

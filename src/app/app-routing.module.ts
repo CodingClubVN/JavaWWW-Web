@@ -8,6 +8,12 @@ const routes: Routes = [
       .then(m => m.LayoutModule)
   },
   {
+    path: 'admin-dashboard',
+    loadChildren: () => import('./modules/admin-dashboard/admin-dashboard.module')
+      .then(m => m.AdminDashboardModule)
+    // router guard for admin here
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'

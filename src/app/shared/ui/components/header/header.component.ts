@@ -49,9 +49,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.isLoggedIn = false
       return false;
     }
-    console.log(token);
-    console.log(this.isLoggedIn);
-    console.log(this.isUserPanelResponsiveOpen);
   }
 
   addClass(): void{

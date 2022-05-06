@@ -9,6 +9,7 @@ import { SubMenuModalComponent } from './components/sub-menu-modal/sub-menu-moda
 import { UserCartModalComponent } from './components/user-cart-modal/user-cart-modal.component'
 import { FormsModule } from '@angular/forms';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { BrandItemComponent } from './components/brand-item/brand-item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     NotFoundComponent,
     SubMenuModalComponent,
     UserCartModalComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    BrandItemComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
         FooterComponent,
         HeaderComponent,
         NotFoundComponent,
-        ProductCardComponent
+        ProductCardComponent,
+        BrandItemComponent
     ]
 })
 export class UiModule { }

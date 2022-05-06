@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { FooterMenuConfig } from '../../../../configs/footer-config';
 
 @Component({
@@ -13,9 +15,10 @@ export class FooterComponent implements OnInit {
   contacts = FooterMenuConfig.contacts;
   privacies = FooterMenuConfig.privacies;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
-
 }

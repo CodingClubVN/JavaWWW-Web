@@ -1,0 +1,13 @@
+.brand-logo {
+  width: 200px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.1);
+
+  .brand-logo-edit {
+    opacity: 0;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

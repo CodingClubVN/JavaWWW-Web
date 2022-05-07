@@ -12,6 +12,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { SpecialOfferComponent } from './components/special-offer/special-offer.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import { WarrantyAndInsuranceComponent } from './components/warranty-and-insurance/warranty-and-insurance.component';
+import { AdvisoryOffersComponent } from './components/advisory-offers/advisory-offers.component';
+import { AdvisoryDealersComponent } from './components/advisory-dealers/advisory-dealers.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { WarrantyAndInsuranceComponent } from './components/warranty-and-insuran
     SpecialOfferComponent,
     MaintenanceComponent,
     WarrantyAndInsuranceComponent,
+    AdvisoryOffersComponent,
+    AdvisoryDealersComponent,
   ],
   imports: [
     CommonModule,

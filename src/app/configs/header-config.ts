@@ -115,10 +115,6 @@ export const HeaderConfig: { menu: ILink[] } = {
           url: '/special-offer'
         },
         {
-          name: 'Đặt hẹn dịch vụ trực tuyến',
-          url: '/online-booking'
-        },
-        {
           name: 'Dịch vụ & Bảo dưỡng',
           url: '/maintenance'
         },

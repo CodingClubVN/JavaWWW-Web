@@ -84,7 +84,7 @@
           </button>
           <button class="btn btn-secondary w-100 text-center" [routerLink]="['/auth', 'register']"
             (click)="isUserPanelOpen = false">
-            <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
+            <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center" (click)="logout()">
               Đăng xuất
             </span>
           </button>

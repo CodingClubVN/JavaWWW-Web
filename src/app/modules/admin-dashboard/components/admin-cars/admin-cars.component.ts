@@ -52,7 +52,18 @@ export class AdminCarsComponent implements OnInit {
         updatedDate: new Date().getTime(),
         imageDTOs: [],
       }
-    })
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.productService.getProducts().subscribe(list => {
+          this.listProducts = list;
+          this.showedProduct = list;
+        })
+        this.notifyService.success('Thành công', 'Thành công');
+      }
+      else if (result == false)
+        this.notifyService.error('Thất bại', 'Thất bại');
+    });
   }
 
 

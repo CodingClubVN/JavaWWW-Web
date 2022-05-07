@@ -107,8 +107,10 @@ export class BrandEditModalComponent implements OnInit {
           brandId: res.id?.toString(),
           type: 'logo'
         }
+        if (!this.selectedFile?.pending) {
+          this.dialogRef.close(true)
+        }
         this.uploadImage(body);
-        this.dialogRef.close(true);
       } else {
         this.dialogRef.close(false);
       }
@@ -124,8 +126,10 @@ export class BrandEditModalComponent implements OnInit {
           brandId: res.id?.toString(),
           type: 'logo'
         }
+        if (!this.selectedFile?.pending) {
+          this.dialogRef.close(true)
+        }
         this.uploadImage(body);
-        this.dialogRef.close(true);
       } else {
         this.dialogRef.close(false);
       }
@@ -136,10 +140,12 @@ export class BrandEditModalComponent implements OnInit {
     if (this.selectedFile?.pending) {
       this.imageService.uploadImage(this.selectedFile.file, body).subscribe(
         res => {
-          this.onSuccess()
+          this.onSuccess(),
+          this.dialogRef.close(true)
         },
         err => {
-          this.onError()
+          this.onError(),
+          this.dialogRef.close(false)
         }
       )
     }

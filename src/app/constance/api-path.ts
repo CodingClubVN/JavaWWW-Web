@@ -23,5 +23,8 @@ export const APIPath = {
     brands: 'brands',
     list: 'brands/list',
     new: 'brands/new',
+  },
+  category: {
+    list: 'category/list'
   }
 }

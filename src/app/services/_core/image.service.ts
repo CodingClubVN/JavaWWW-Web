@@ -23,7 +23,7 @@ export class ImageService {
 
 
     console.log(formData.has('file'));
-    return this.apiService.post(path, formData).pipe(
+    return this.apiService.postFormData(path, formData).pipe(
       map((res: HttpResponse<any>) => console.log(res)),
     );
   }

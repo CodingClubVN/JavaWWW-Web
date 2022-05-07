@@ -1,0 +1,13 @@
+.img-cover{
+  background-image: linear-gradient(to right, black 1%, transparent 80%), url("/assets/media/advisory-offers-cover.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+*{
+  color: black !important;
+}
+.text-light{
+  color: white !important;
+}

@@ -1,12 +1,17 @@
 <div>
-  <div class="product-outer text-center p-5 m-3" (mouseover)="imageStatus = true" (mouseout)="imageStatus = false">
-    <p style="font-size: 24px">EQS</p>
-    <p style="font-size: 16px" class="">Giá từ 1.555.000.000 đ</p>
-    <div class="d-flex justify-content-center mt-3">
-      <div class="tag px-2">Mới</div>
-      <div class="tag px-2 ms-2">Hot</div>
-    </div>
-    <img *ngIf="imageStatus" src="assets/media/product_2.webp" width="300" height="175">
-    <img *ngIf="!imageStatus" src="assets/media/product_2b.webp" width="300" height="175">
+  <div class="product-outer text-center m-3 ">
+    <a href="/product/{{this.productChildren?.id}}" class="text-decoration-none">
+      <p style="font-size: 24px">{{this.productChildren?.name}}</p>
+      <p style="font-size: 16px" class="">Giá từ {{this.productChildren?.price | currency: 'VND'}}</p>
+      <div class="d-flex justify-content-center mt-3">
+        <div class="tag px-2">Mới</div>
+        <div class="tag px-2 ms-2">Hot</div>
+      </div>
+      <div class="mt-4" *ngFor="let img of this.productChildren?.imageDTOs">
+        <div *ngIf="img.type === 'thumbnail'">
+          <img src="{{this.url}}{{img.id}}" width="90%" height="175">
+        </div>
+      </div>
+    </a>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { ILink } from "../models/i-link-model";
 
-export const HeaderConfig: {menu: ILink[]} = {
+export const HeaderConfig: { menu: ILink[] } = {
   menu: [
     {
       name: 'Các dòng xe',
@@ -112,15 +112,11 @@ export const HeaderConfig: {menu: ILink[]} = {
       subMenu: [
         {
           name: 'Ưu đãi đặc biệt',
-          url: '/special-offers'
-        },
-        {
-          name: 'Đặt hẹn dịch vụ trực tuyến',
-          url: '/online-booking'
+          url: '/special-offer'
         },
         {
           name: 'Dịch vụ & Bảo dưỡng',
-          url: '/services-and-maintenance'
+          url: '/maintenance'
         },
         {
           name: 'Bảo hành & Bảo hiểm',

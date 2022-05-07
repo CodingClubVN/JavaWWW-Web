@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import {HomeComponent} from "./components/home/home.component";
+import { HomeComponent } from "./components/home/home.component";
+import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
+import {SpecialOfferComponent} from "./components/special-offer/special-offer.component";
+import {MaintenanceComponent} from "./components/maintenance/maintenance.component";
+import {WarrantyAndInsuranceComponent} from "./components/warranty-and-insurance/warranty-and-insurance.component";
+import {AdvisoryOffersComponent} from "./components/advisory-offers/advisory-offers.component";
+import {AdvisoryDealersComponent} from "./components/advisory-dealers/advisory-dealers.component";
 
 const routes: Routes = [
   {
@@ -21,6 +27,30 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('../modules/auth/auth.module')
           .then(m => m.AuthModule)
+      },
+      {
+        path: 'product/:id',
+        component: ProductDetailComponent
+      },
+      {
+        path:'services/special-offer',
+        component: SpecialOfferComponent
+      },
+      {
+        path:'services/maintenance',
+        component: MaintenanceComponent
+      },
+      {
+        path:'services/warranty-and-insurance',
+        component: WarrantyAndInsuranceComponent
+      },
+      {
+        path:'advisory/offers',
+        component: AdvisoryOffersComponent
+      },
+      {
+        path:'advisory/dealers',
+        component: AdvisoryDealersComponent
       }
     ]
   }

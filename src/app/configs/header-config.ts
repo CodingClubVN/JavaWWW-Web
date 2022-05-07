@@ -112,7 +112,7 @@ export const HeaderConfig: { menu: ILink[] } = {
       subMenu: [
         {
           name: 'Ưu đãi đặc biệt',
-          url: '/special-offers'
+          url: '/special-offer'
         },
         {
           name: 'Đặt hẹn dịch vụ trực tuyến',
@@ -120,7 +120,7 @@ export const HeaderConfig: { menu: ILink[] } = {
         },
         {
           name: 'Dịch vụ & Bảo dưỡng',
-          url: '/services-and-maintenance'
+          url: '/maintenance'
         },
         {
           name: 'Bảo hành & Bảo hiểm',

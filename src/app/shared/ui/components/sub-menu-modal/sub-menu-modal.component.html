@@ -5,7 +5,7 @@
       <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
         <i class="fa fa-times text-dark"></i>
       </button>
-    </div> 
+    </div>
     <ul *ngIf="data?.subMenu?.length" class="p-0 overflow-auto">
       <li class="list-group" *ngFor="let item of data?.subMenu">
         <a class="list-group-item list-group-item-action border-0" [routerLink]="data?.url + item.url">

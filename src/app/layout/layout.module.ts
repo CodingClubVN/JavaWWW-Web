@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { SpecialOfferComponent } from './components/special-offer/special-offer.component';
+import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     HomeComponent,
     ListProductComponent,
     ProductDetailComponent,
+    SpecialOfferComponent,
+    MaintenanceComponent,
   ],
   imports: [
     CommonModule,

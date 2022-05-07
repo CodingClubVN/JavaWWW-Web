@@ -133,8 +133,10 @@ export class CarItemEditComponent implements OnInit {
           brandId: res.brandDTO?.id,
           type: 'thumbnail'
         }
+        if(!this.selectedFile?.pending) {
+          this.dialogRef.close(true)
+        }
         this.uploadImage(body);
-        this.dialogRef.close(true);
       } else {
         this.dialogRef.close(false);
       }
@@ -163,8 +165,10 @@ export class CarItemEditComponent implements OnInit {
           brandId: res.brandDTO?.id,
           type: 'thumbnail'
         }
+        if (!this.selectedFile?.pending) {
+          this.dialogRef.close(true)
+        }
         this.uploadImage(body);
-        this.dialogRef.close(true);
       } else {
         this.dialogRef.close(false);
       }
@@ -175,10 +179,12 @@ export class CarItemEditComponent implements OnInit {
     if (this.selectedFile?.pending) {
       this.imageService.uploadImage(this.selectedFile.file, body).subscribe(
         res => {
-          this.onSuccess()
+          this.onSuccess(),
+          this.dialogRef.close(true)
         },
         err => {
-          this.onError()
+          this.onError(),
+          this.dialogRef.close(false)
         }
       )
     }

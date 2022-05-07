@@ -2,7 +2,7 @@
   background-color: #262626;
 }
 .img-cover{
-  background-image: url("/assets/media/img-cover.webp");
+  background-image:linear-gradient(to right, black 1%, transparent 80%), url("/assets/media/img-cover.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

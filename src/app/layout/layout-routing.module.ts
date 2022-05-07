@@ -5,6 +5,7 @@ import { HomeComponent } from "./components/home/home.component";
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {SpecialOfferComponent} from "./components/special-offer/special-offer.component";
 import {MaintenanceComponent} from "./components/maintenance/maintenance.component";
+import {WarrantyAndInsuranceComponent} from "./components/warranty-and-insurance/warranty-and-insurance.component";
 
 const routes: Routes = [
   {
@@ -36,7 +37,12 @@ const routes: Routes = [
       {
         path:'services/maintenance',
         component: MaintenanceComponent
+      },
+      {
+        path:'services/warranty-and-insurance',
+        component: WarrantyAndInsuranceComponent
       }
+
     ]
   }
 ];

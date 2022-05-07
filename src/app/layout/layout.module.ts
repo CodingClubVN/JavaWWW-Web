@@ -11,6 +11,7 @@ import { ListProductComponent } from './components/list-product/list-product.com
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { SpecialOfferComponent } from './components/special-offer/special-offer.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
+import { WarrantyAndInsuranceComponent } from './components/warranty-and-insurance/warranty-and-insurance.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MaintenanceComponent } from './components/maintenance/maintenance.compo
     ProductDetailComponent,
     SpecialOfferComponent,
     MaintenanceComponent,
+    WarrantyAndInsuranceComponent,
   ],
   imports: [
     CommonModule,

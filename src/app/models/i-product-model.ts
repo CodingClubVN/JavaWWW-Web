@@ -1,4 +1,6 @@
-import {IImageDTO} from "./i-imageDTO";
+import { IBrandModel } from "./i-brand-model";
+import { ICategoryDTOModel } from "./i-category-dto-model";
+import { IImageDTO } from "./i-imageDTO";
 
 export class IProductModel {
   id: number | undefined;
@@ -9,4 +11,6 @@ export class IProductModel {
   createdDate: Date | undefined;
   updatedDate: Date | undefined;
   imageDTOs: IImageDTO[] | undefined;
+  brandDTO?: IBrandModel;
+  categoryDTO?: ICategoryDTOModel;
 }

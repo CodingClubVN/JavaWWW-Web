@@ -59,7 +59,7 @@ export class AdminBrandsComponent implements OnInit, OnDestroy {
   }
 
   onSearch() {
-    const result = this.listBrand.filter(brand => brand.name.includes(this.search));
+    const result = this.listBrand.filter(brand => brand.name.toLowerCase().includes(this.search));
     this.showedBrands = result;
   }
 

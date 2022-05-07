@@ -1,0 +1,49 @@
+<h1 mat-dialog-title class="text-dark">{{ product.id ? 'Chỉnh sửa thông tin xe' : 'Thêm xe' }}</h1>
+<div mat-dialog-content class="py-3">
+  <div class="row w-100">
+    <div class="col-md-12 col-lg-5 d-flex justify-content-center align-items-center mb-2">
+      <div class="brand-logo rounded rounded-3" id="preview-img">
+        <label class="brand-logo-edit w-100 h-100 rounded rounded-3 d-flex align-items-center justify-content-center" for="logoImg" type="button">
+          <input #imageInput type="file" class="d-none" id="logoImg" accept="image/png, image/jpeg, image/jpg" (change)="processLogoImg(imageInput)">
+          <i class="fas fa-camera fa-3x text-dark"></i>
+        </label>
+      </div>
+    </div>
+    <form [formGroup]="addProductForm" class="col-md-12 col-lg-7">
+      <div class="form-floating mb-3 text-dark">
+        <input formControlName="name" type="text" class="form-control text-dark" id="name" placeholder="Tên">
+        <label for="name" class="text-dark">Tên</label>
+      </div>
+			<div class="form-floating mb-3">
+        <select formControlName="brandId" class="form-select text-dark" id="brandId" aria-label="hãng" style="color: black;">
+          <option *ngFor="let brand of listBrand" [value]="brand.id">{{ brand.name }}</option>
+        </select>
+        <label for="brandId" class="text-dark">Hãng</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input formControlName="price" type="text" class="form-control text-dark" id="country" placeholder="Giá">
+        <label for="price" class="text-dark">Giá</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input formControlName="bodyType" type="text" class="form-control text-dark" id="founderYear" placeholder="Kiểu body">
+        <label for="bodyType" class="text-dark">Kiểu body</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input formControlName="fuelType" class="form-control text-dark" placeholder="Sử dụng nhiên liệu" id="description">
+        <label for="fuelType" class="text-dark">Sử dụng nhiên liệu</label>
+      </div>
+      <div class="form-floating">
+        <select formControlName="categoryId" class="form-select text-dark" id="categoryId" aria-label="Phân loại" style="color: black;">
+          <option *ngFor="let category of categories" [value]="category.id" >{{category.name}}</option>
+        </select>
+        <label for="categoryId" class="text-dark">Phân loại</label>
+      </div>
+    </form>
+  </div>
+</div>
+<div mat-dialog-actions class="float-end">
+  <button class="btn btn-danger me-2" (click)="onNoClick()">Đóng</button>
+  <button class="btn btn-warning me-2" *ngIf="product.id" (click)="onDelete()">Xóa</button>
+  <button class="btn btn-success" (click)="onSubmit()" *ngIf="!product.id">Thêm</button>
+  <button class="btn btn-primary" (click)="onUpdate()" *ngIf="product.id">Cập nhật</button>
+</div>

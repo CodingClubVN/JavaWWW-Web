@@ -50,22 +50,5 @@ export class OrderService {
       })
     )
   }
-  // getCartDetailById(id: number): Observable<IBrandModel> {
-  //   const path = `${environment.apiPath}/${APIPath.cartDetial.cart}/${id}`;
-  //   return this.apiService.get(path).pipe(
-  //     map((res: HttpResponse<any>) => {
-  //       return res.body;
-  //     })
-  //   )
-  // }
-  //
-  // deleteCartDetail(id: number) {
-  //   const path = `${environment.apiPath}/${APIPath.cartDetial.cart}/${id}`;
-  //   return this.apiService.delete(path).pipe(
-  //     map((res: HttpResponse<any>) => {
-  //       console.log(res.body);
-  //     })
-  //   )
-  // }
 
 }

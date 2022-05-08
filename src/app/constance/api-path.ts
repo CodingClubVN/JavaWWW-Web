@@ -41,5 +41,9 @@ export const APIPath = {
     updateStatus: 'orders/updateStatus',
     detail: 'orders/detail',
     me: 'orders/me',
+  },
+  user: {
+    user: 'users',
+    me: 'users/me'
   }
 }

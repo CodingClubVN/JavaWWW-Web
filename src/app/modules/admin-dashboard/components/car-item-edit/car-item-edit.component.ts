@@ -8,6 +8,8 @@ import { BrandService } from 'src/app/services/brand/brand.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { ImageService } from 'src/app/services/_core/image.service';
 import { environment } from 'src/environments/environment';
+import {CategoryService} from "../../../../services/category/category.service";
+import {ICategoryDTOModel} from "../../../../models/i-category-dto-model";
 
 class ImageSnippet {
   pending: boolean = false;
@@ -28,23 +30,15 @@ export class CarItemEditComponent implements OnInit {
   selectedFile!: ImageSnippet;
   previewImg!: any;
   listBrand!: IBrandModel[];
-  categories = [
-    {
-      id: 4,
-      name: 'SUV'
-    },
-    {
-      id: 5,
-      name: 'Sedan'
-    }
-  ];
+  categories!: ICategoryDTOModel[];
 
   constructor(
     public dialogRef: MatDialogRef<CarItemEditComponent>,
     private imageService: ImageService,
     @Inject(MAT_DIALOG_DATA) public product: IProductModel,
     private productService: ProductService,
-    private brandService: BrandService
+    private brandService: BrandService,
+    private categoryService: CategoryService
   ) {
     this.addProductForm = this.initProductForm();
   }
@@ -53,6 +47,7 @@ export class CarItemEditComponent implements OnInit {
     this.previewImg = document.getElementById('preview-img');
     this.getLogoImg();
     this.brandService.getBrands().subscribe(list => this.listBrand = list);
+    this.categoryService.getCategories().subscribe(list => this.categories = list);
   }
 
   initProductForm(): FormGroup {
@@ -61,8 +56,8 @@ export class CarItemEditComponent implements OnInit {
       price: new FormControl(this.product.price ? this.product.price : '', Validators.required),
       bodyType: new FormControl(this.product.bodyType ? this.product.bodyType : '', Validators.required),
       fuelType: new FormControl(this.product.fuelType ? this.product.fuelType : '', Validators.required),
-      brandId: new FormControl(this.product.brandDTO?.id ? this.product.brandDTO.id : '', Validators.required),
-      categoryId: new FormControl(this.product.categoryDTO?.id ? this.product.categoryDTO.id : this.categories[0], Validators.required)
+      brandId: new FormControl(this.product.brandDTO?.id ? this.product.brandDTO.id : 4, Validators.required),
+      categoryId: new FormControl(this.product.categoryDTO?.id ? this.product.categoryDTO.id : 4, Validators.required)
     })
   }
 
@@ -109,7 +104,7 @@ export class CarItemEditComponent implements OnInit {
 
   onDelete() {
     const id = this.product.id ? this.product.id : 0;
-    if (confirm('Bạn có chắc chắn muốn xóa hãng này và tất cả sản phẩm của hãng?') == true) {
+    if (confirm('Bạn có chắc chắn muốn xóa mẫu xe này?')) {
       this.productService.deleteProduct(id).subscribe(() => {
         this.dialogRef.close(true);
       });
@@ -118,14 +113,30 @@ export class CarItemEditComponent implements OnInit {
 
   updateProduct() {
     const product = this.addProductForm.getRawValue();
-    this.productService.updateProduct(product).subscribe(res => {
+    const formValue = {
+      id: this.product?.id,
+      name: product.name,
+      price: parseInt(product.price),
+      fuelType: product.fuelType,
+      bodyType: product.bodyType,
+      brand: {
+        id: parseInt(product.brandId)
+      },
+      category: {
+        id: parseInt(product.categoryId)
+      }
+    }
+    this.productService.updateProduct(formValue).subscribe(res => {
       if (res) {
         const body = {
-          brandId: res.id?.toString(),
-          type: 'logo'
+          productId: res.id,
+          brandId: res.brandDTO?.id,
+          type: 'thumbnail'
+        }
+        if(!this.selectedFile?.pending) {
+          this.dialogRef.close(true)
         }
         this.uploadImage(body);
-        this.dialogRef.close(true);
       } else {
         this.dialogRef.close(false);
       }
@@ -134,14 +145,30 @@ export class CarItemEditComponent implements OnInit {
 
   createNewProduct() {
     const product = this.addProductForm.getRawValue();
-    this.productService.createProduct(product).subscribe(res => {
+    const formValue = {
+      name: product.name,
+      price: parseInt(product.price),
+      fuelType: product.fuelType,
+      bodyType: product.bodyType,
+      brand:{
+        id: parseInt(product.brandId)
+      },
+      category:{
+        id: parseInt(product.categoryId)
+      }
+    }
+    this.productService.createProduct(formValue).subscribe(res => {
       console.log(res);
       if (res) {
         const body = {
-          // to do
+          productId: res.id,
+          brandId: res.brandDTO?.id,
+          type: 'thumbnail'
+        }
+        if (!this.selectedFile?.pending) {
+          this.dialogRef.close(true)
         }
         this.uploadImage(body);
-        this.dialogRef.close(true);
       } else {
         this.dialogRef.close(false);
       }
@@ -152,10 +179,12 @@ export class CarItemEditComponent implements OnInit {
     if (this.selectedFile?.pending) {
       this.imageService.uploadImage(this.selectedFile.file, body).subscribe(
         res => {
-          this.onSuccess()
+          this.onSuccess(),
+          this.dialogRef.close(true)
         },
         err => {
-          this.onError()
+          this.onError(),
+          this.dialogRef.close(false)
         }
       )
     }

@@ -116,4 +116,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       window.location.href = 'auth/login';
     }
   }
+
+  checkAdmin(): boolean{
+      const role = this.storageService.getRole();
+      if(role === 'admin'){
+        return true;
+      }else{
+        return false;
+      }
+  }
 }

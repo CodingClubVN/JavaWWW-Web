@@ -1,0 +1,60 @@
+<h1 mat-dialog-title class="text-dark">Thông tin đơn hàng</h1>
+<div mat-dialog-content class="py-3">
+  <div class="w-100 px-3">
+    <p class="h4 my-3 text-dark">Thông tin khách hàng</p>
+    <p class="h5 fw-normal text-dark mb-2" >Order ID: {{ order?.id }}</p>
+    <p class="h5 fw-normal text-dark mb-2" >Tên khách hàng: {{ order?.user?.firstName + ' ' + order?.user?.lastName }}</p>
+    <p class="h5 fw-normal text-dark mb-2" >Số điện thoại: {{ order?.user?.telephone }}</p>
+    <p class="h5 fw-normal text-dark mb-2" >Ngày tạo đơn: {{ order?.createDate | date: 'short' }}</p>
+  </div>
+  <div class="w-100 px-3">
+    <p class="h4 my-3 text-dark">Thông tin đơn hàng:</p>
+    <div class="w-100 border">
+      <div class="px-0 row">
+        <div class="col-1 text-dark text-center">STT</div>
+        <div class="col-5 text-dark text-center">Thông tin</div>
+        <div class="col-2 text-dark text-center">Số lượng</div>
+        <div class="col-2 text-dark text-center">Đơn giá</div>
+        <div class="col-2 text-dark text-center">Thành tiền</div>
+      </div>
+      <hr class="text-dark">
+      <div class="row align-items-center" *ngFor="let detail of order?.orderDetails; let i = index">
+        <div class="col-1 text-dark text-center">{{ i + 1 }}</div>
+        <div class="col-5 text-dark text-center row align-items-center">
+          <div class="col-4">
+            <img [src]="apiPath.image.url + detail.product?.id" class="w-100 ratio ratio-4x3">
+          </div>
+          <div class="col-8">
+            <p class="text-dark text-start">{{ detail.product?.name }}</p>
+            <p class="text-dark text-start">{{ detail.product?.brand?.name }}</p>
+          </div>
+        </div>
+        <div class="col-2 text-dark text-center">{{ detail.quantity }}</div>
+        <div class="col-2 text-dark text-center">{{ detail.product?.price | currency }}</div>
+        <div class="col-2 text-dark text-center">{{ caculateTotal(detail.quantity, detail.product?.price) | currency }}</div>
+      </div>
+      <hr class="text-dark">
+      <div class="row pe-4 pb-2">
+        <div class="col h4 text-dark text-end">Tổng tiền: {{ order?.total | currency }}</div>
+      </div>
+    </div>
+    <div>
+      <p class="h4 my-3 text-dark">Cập nhật trạng thái đơn hàng:</p>
+      <div class="d-flex align-items-center">
+        <div class="form-floating w-25 me-3">
+          <select class="form-select text-dark" id="status" aria-label="Trạng thái" [(ngModel)]="status">
+            <option value="Mới" class="text-dark">Mới</option>
+            <option value="Đang xử lý"  class="text-dark">Đang xử lý</option>
+            <option value="Thành công"  class="text-dark">Thành công</option>
+            <option value="Hủy"  class="text-dark">Hủy</option>
+          </select>
+          <label class="status text-dark" style="color: black !important;">Trạng thái</label>
+        </div>
+        <button class="btn btn-primary d-inline" (click)="updateStatus()">Cập nhật</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="float-end">
+  <button class="btn btn-danger me-2" (click)="onNoClick()">Đóng</button>
+</div>

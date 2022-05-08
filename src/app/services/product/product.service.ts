@@ -34,7 +34,7 @@ export class ProductService {
     )
   }
 
-  createProduct(product: IProductModel): Observable<IProductModel> {
+  createProduct(product: any): Observable<IProductModel> {
     const path = `${url}/${pathUrl.new}`;
     return this.apiService.post(path, product).pipe(
       map((res: HttpResponse<any>) => {
@@ -43,8 +43,8 @@ export class ProductService {
     )
   }
 
-  updateProduct(product: IProductModel): Observable<IProductModel> {
-    const path = `${url}/${pathUrl.list}/${product.id}`;
+  updateProduct(product: any): Observable<IProductModel> {
+    const path = `${url}/${pathUrl.product}/${product.id}`;
     return this.apiService.put(path, product).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
@@ -53,7 +53,7 @@ export class ProductService {
   }
 
   deleteProduct(id: number): Observable<any> {
-    const path = `${url}/${pathUrl.list}/${id}`;
+    const path = `${url}/${pathUrl.product}/${id}`;
     return this.apiService.delete(path);
   }
 }

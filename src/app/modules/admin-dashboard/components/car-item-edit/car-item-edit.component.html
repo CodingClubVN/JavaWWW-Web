@@ -16,25 +16,25 @@
       </div>
 			<div class="form-floating mb-3">
         <select formControlName="brandId" class="form-select text-dark" id="brandId" aria-label="hãng" style="color: black;">
-          <option *ngFor="let brand of listBrand" [value]="brand.id">{{ brand.name }}</option>
+          <option *ngFor="let brand of listBrand" [value]="brand.id"  class="text-dark">{{ brand.name }}</option>
         </select>
         <label for="brandId" class="text-dark">Hãng</label>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="price" type="text" class="form-control text-dark" id="country" placeholder="Giá">
+        <input formControlName="price" type="text" class="form-control text-dark" id="price" placeholder="Giá">
         <label for="price" class="text-dark">Giá</label>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="bodyType" type="text" class="form-control text-dark" id="founderYear" placeholder="Kiểu body">
+        <input formControlName="bodyType" type="text" class="form-control text-dark" id="bodyType" placeholder="Kiểu body">
         <label for="bodyType" class="text-dark">Kiểu body</label>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="fuelType" class="form-control text-dark" placeholder="Sử dụng nhiên liệu" id="description">
+        <input formControlName="fuelType" class="form-control text-dark" placeholder="Sử dụng nhiên liệu" id="fuelType">
         <label for="fuelType" class="text-dark">Sử dụng nhiên liệu</label>
       </div>
       <div class="form-floating">
         <select formControlName="categoryId" class="form-select text-dark" id="categoryId" aria-label="Phân loại" style="color: black;">
-          <option *ngFor="let category of categories" [value]="category.id" >{{category.name}}</option>
+          <option *ngFor="let category of categories" [value]="category.id" class="text-dark">{{ category.name }}</option>
         </select>
         <label for="categoryId" class="text-dark">Phân loại</label>
       </div>

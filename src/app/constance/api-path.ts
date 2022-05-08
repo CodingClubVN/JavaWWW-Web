@@ -23,5 +23,27 @@ export const APIPath = {
     brands: 'brands',
     list: 'brands/list',
     new: 'brands/new',
+  },
+  cartDetial: {
+    cart: 'cartdetail',
+    list: 'cartdetail/list',
+    new: 'cartdetail/new',
+    detail: 'cartdetail/detail'
+  },
+  category:{
+    category: 'category',
+    list: 'category/list'
+  },
+  order: {
+    order: 'orders',
+    list: 'orders/list',
+    new: 'orders/new',
+    updateStatus: 'orders/updateStatus',
+    detail: 'orders/detail',
+    me: 'orders/me',
+  },
+  user: {
+    user: 'users',
+    me: 'users/me'
   }
 }

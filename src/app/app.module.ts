@@ -10,6 +10,7 @@ import {StorageService} from "./services/storage/storage.service";
 import {AuthService} from "./services/auth/auth.service";
 import {LocalStorageService, NgxWebstorageModule} from "ngx-webstorage";
 import {ToastrModule} from "ngx-toastr";
+import {NgxImageZoomModule} from "ngx-image-zoom";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {ToastrModule} from "ngx-toastr";
     BrowserAnimationsModule,
     NgxWebstorageModule.forRoot(),
     ToastrModule.forRoot(),
+    NgxImageZoomModule
   ],
   providers: [],
   bootstrap: [AppComponent]

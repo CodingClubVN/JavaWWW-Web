@@ -3,7 +3,7 @@
 }
 
 .col-1 {
-  padding: 10px 20px !important;
+  padding: 5px 20px !important;
   width: 10% !important;
 }
 
@@ -30,10 +30,41 @@ button {
     color: #0078D6 !important;
   }
 }
+.list-btn-category{
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.list-btn-category button{
+  width: 200px;
+  display: inline-block;
+  zoom: 1;
+  padding: 0px;
+}
 .list-btn-category button:hover{
   background-color: #F1F3F4 !important;
   color: black !important;
 }
 .show-all a:hover{
   color: #0078D6 !important;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

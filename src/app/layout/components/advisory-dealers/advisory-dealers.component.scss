@@ -1,0 +1,43 @@
+*{
+  color: black !important;
+}
+.image-dealer{
+  width: 393px;
+  height: 262px;
+}
+.list-dealer{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+.dealer{
+  width: calc(33.33% - 10px);
+  margin: 0 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+.div-content{
+  flex: 1;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+.name-dealer{
+  flex-shrink: 0;
+}
+.connect-dealer{
+  flex: 1;
+  margin-top: auto;
+}
+
+.name-dealer{
+  margin: 10px 0;
+  text-align: center;
+  color: red !important;
+  width: 393px;
+}
+.address-dealer{
+  width: 393px;
+}

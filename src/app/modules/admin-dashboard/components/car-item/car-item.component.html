@@ -1,9 +1,9 @@
 <div class="w-100 bg-light rounded rounded-3 p-2 d-flex" type="button">
-  <div *ngIf="thumbImg?.type == 'thumbnail'; else noLogo" class="w-50 ratio ratio-1x1 bg-light rounded rounded-3 text-dark">
-    <img [src]="apiPath + '/images/' + thumbImg?.id" alt="logo" class="w-100 ratio ratio-1x1 rounded rounded-3" style=""> 
+  <div *ngIf="thumbImg?.type == 'thumbnail'; else noLogo" class="w-50 ratio ratio-4x3 bg-light rounded rounded-3 text-dark">
+    <img [src]="apiPath + '/images/' + thumbImg?.id" alt="logo" class="w-100 ratio ratio-4x3 rounded rounded-3" style=""> 
   </div>
   <ng-template #noLogo>
-    <div class="w-50 ratio ratio-1x1 bg-warning rounded rounded-3 text-dark"></div>
+    <div class="w-50 ratio ratio-4x3 bg-warning rounded rounded-3 text-dark"></div>
   </ng-template>
   <div class="w-100 mt-3 ms-3">
     <p class="h4 text-dark">{{ product.name }}</p>

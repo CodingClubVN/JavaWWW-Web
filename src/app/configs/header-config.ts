@@ -7,10 +7,10 @@ export const HeaderConfig: { menu: ILink[] } = {
       url: '/cars',
       icon: 'fa fa-car',
       subMenu: [
-        {
-          name: 'Tất cả các dòng xe',
-          url: '/all',
-        },
+        // {
+        //   name: 'Tất cả các dòng xe',
+        //   url: '/all',
+        // },
         {
           name: 'Truyền động Hybrid',
           url: '/hybrid',
@@ -27,65 +27,65 @@ export const HeaderConfig: { menu: ILink[] } = {
           name: 'Xe sedan',
           url: '/sedan',
         },
-        {
-          name: 'Xe Wagon/xe bán tải',
-          url: '/wagon',
-        },
-        {
-          name: 'Coupé',
-          url: '/coupe',
-        },
-        {
-          name: 'Xe Cabriolet & xe Roadster',
-          url: '/cabriolet',
-        },
-        {
-          name: 'Xe đa dụng',
-          url: '/common',
-        },
-        {
-          name: 'Các dòng xe mới',
-          url: '/new',
-        }
+        // {
+        //   name: 'Xe Wagon/xe bán tải',
+        //   url: '/wagon',
+        // },
+        // {
+        //   name: 'Coupé',
+        //   url: '/coupe',
+        // },
+        // {
+        //   name: 'Xe Cabriolet & xe Roadster',
+        //   url: '/cabriolet',
+        // },
+        // {
+        //   name: 'Xe đa dụng',
+        //   url: '/common',
+        // },
+        // {
+        //   name: 'Các dòng xe mới',
+        //   url: '/new',
+        // }
       ],
-      subMenu2: [
-        {
-          name: 'Chọn cấu hình xe',
-          url: '/config',
-          icon: 'fa fa-cogs'
-        },
-        {
-          name: 'Tìm xe có sẵn tại đại lý',
-          url: '/available',
-          icon: 'fa fa-shopping-cart'
-        },
-        {
-          name: 'Đăng ký lái thử xe',
-          url: '/trial',
-          icon: 'fa fa-car-side'
-        }
-      ]
+      // subMenu2: [
+      //   {
+      //     name: 'Chọn cấu hình xe',
+      //     url: '/config',
+      //     icon: 'fa fa-cogs'
+      //   },
+      //   {
+      //     name: 'Tìm xe có sẵn tại đại lý',
+      //     url: '/available',
+      //     icon: 'fa fa-shopping-cart'
+      //   },
+      //   {
+      //     name: 'Đăng ký lái thử xe',
+      //     url: '/trial',
+      //     icon: 'fa fa-car-side'
+      //   }
+      // ]
     },
     {
       name: 'Mua trực tuyến',
       url: '/buy-online',
       subMenu: [
         {
-          name: 'Xe mới',
-          url: '/new',
+          name: 'Danh sách sản phẩm',
+          url: '/list-product',
         },
-        {
-          name: 'Xe đã qua sử dụng',
-          url: '/used'
-        },
-        {
-          name: 'Phụ kiện chính hãng',
-          url: '/accessories'
-        },
-        {
-          name: 'Bộ sưu tập',
-          url: '/collection'
-        }
+        // {
+        //   name: 'Xe đã qua sử dụng',
+        //   url: '/used'
+        // },
+        // {
+        //   name: 'Phụ kiện chính hãng',
+        //   url: '/accessories'
+        // },
+        // {
+        //   name: 'Bộ sưu tập',
+        //   url: '/collection'
+        // }
       ]
     },
     {

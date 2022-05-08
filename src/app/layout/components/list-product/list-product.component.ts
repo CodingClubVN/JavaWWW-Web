@@ -18,9 +18,9 @@ export class ListProductComponent implements OnInit {
   listProduct: IProductModel[] = [];
   listProductBackUp: IProductModel[] = [];
   listBrand: IBrandModel[] = [];
-  listBrandBackup: IBrandModel[] = [];
   listCategory: ICategoryDTOModel[] = [];
   url = APIPath.image.url;
+  countProductPage = 9;
 
 
   constructor(private productService: ProductService,
@@ -36,6 +36,7 @@ export class ListProductComponent implements OnInit {
         this.listProduct = res;
         this.listProductBackUp = res;
         console.log(this.listProduct);
+        this.page();
       },
       error => {
         if (error.status === 500) {
@@ -60,6 +61,9 @@ export class ListProductComponent implements OnInit {
         })
   }
 
+  page(): void{
+    this.listProduct = this.listProduct.slice(0,this.countProductPage);
+  }
 
   filterByCategory(category: ICategoryDTOModel): void {
     this.listProduct = this.listProductBackUp;
@@ -71,7 +75,20 @@ export class ListProductComponent implements OnInit {
     this.listProduct = this.listProduct.filter(res => res.brandDTO?.id === brand.id);
   }
 
-  showAll() {
-    this.listProduct = this.listProductBackUp;
+  showAll(): void{
+    this.countProductPage = 9;
+    this.listenService();
+  }
+
+  showMore(): void{
+    this.countProductPage += 9;
+    this.listenService();
+  }
+  checkLengthList(): boolean{
+    if(this.listProduct.length === this.listProductBackUp.length){
+      return false;
+    }else{
+      return true;
+    }
   }
 }

@@ -18,12 +18,12 @@
         <div class="col-2 text-dark text-center">Thành tiền</div>
       </div>
       <hr class="text-dark">
-      <div class="row align-items-center" *ngFor="let detail of order?.orderDetails; let i = index"> 
+      <div class="row align-items-center" *ngFor="let detail of order?.orderDetails; let i = index">
         <div class="col-1 text-dark text-center">{{ i + 1 }}</div>
         <div class="col-5 text-dark text-center row align-items-center">
           <div class="col-4">
             <img [src]="apiPath.image.url + detail.product?.id" class="w-100 ratio ratio-4x3">
-          </div> 
+          </div>
           <div class="col-8">
             <p class="text-dark text-start">{{ detail.product?.name }}</p>
             <p class="text-dark text-start">{{ detail.product?.brand?.name }}</p>
@@ -43,12 +43,12 @@
       <div class="d-flex align-items-center">
         <div class="form-floating w-25 me-3">
           <select class="form-select text-dark" id="status" aria-label="Trạng thái" [(ngModel)]="status">
-            <option value="Mới">Mới</option>
-            <option value="Đang xử lý">Đang xử lý</option>
-            <option value="Thành công">Thành công</option>
-            <option value="Hủy">Hủy</option>
+            <option value="Mới" class="text-dark">Mới</option>
+            <option value="Đang xử lý"  class="text-dark">Đang xử lý</option>
+            <option value="Thành công"  class="text-dark">Thành công</option>
+            <option value="Hủy"  class="text-dark">Hủy</option>
           </select>
-          <label for="status text-dark" style="color: black !important;">Trạng thái</label>
+          <label class="status text-dark" style="color: black !important;">Trạng thái</label>
         </div>
         <button class="btn btn-primary d-inline" (click)="updateStatus()">Cập nhật</button>
       </div>

@@ -1,6 +1,6 @@
 <div class="container-custom m-auto">
   <h1 class="mt-5">
-    <p>Các dòng xe Mercedes-Benz</p>
+    <p>Danh sách các dòng xe</p>
   </h1>
   <div class="mt-5 list-btn-category">
     <button class="btn-active py-2" (click)="showAll()">Tất cả dòng xe</button>
@@ -32,7 +32,7 @@
           <p class="ms-3" style="font-size: 18px">{{category.name}}</p>
         </a>
         <div class="mt-5 show-all">
-          <a class="fw-bold text-decoration-none" href="#">
+          <a class="fw-bold text-decoration-none" (click)="showAll()">
             Xem tất cả
           </a>
         </div>
@@ -43,6 +43,13 @@
         <div class="col-4" *ngFor="let product of this.listProduct">
           <app-product-card [productCard]="product"></app-product-card>
         </div>
+      </div>
+      <div class="d-flex justify-content-center my-5" *ngIf="this.checkLengthList()">
+        <button class="px-5 py-2 btn btn-light"
+                (click)="showMore()"
+                *ngIf="listProduct.length >= 9">
+          Xem thêm
+        </button>
       </div>
     </div>
   </div>

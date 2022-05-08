@@ -82,7 +82,7 @@ export class CartComponent implements OnInit {
   createOrder(iOrderModel: IOrderModel): void {
     iOrderModel.total = this.total;
     iOrderModel.address = this.address;
-    iOrderModel.status = 'order placed';
+    iOrderModel.status = 'Mới';
     const orderDetail = new IOrderDetailDTO();
     const listOrderDetail: IOrderDetailDTO[] = [];
     this.listCart.map(res => {

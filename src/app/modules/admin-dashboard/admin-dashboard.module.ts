@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrandEditModalComponent } from './components/brand-edit-modal/brand-edit-modal.component';
 import { CarItemComponent } from './components/car-item/car-item.component';
 import { CarItemEditComponent } from './components/car-item-edit/car-item-edit.component';
+import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
+import { OrderItemComponent } from './components/order-item/order-item.component';
+import { OderDetailComponent } from './components/oder-detail/oder-detail.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { CarItemEditComponent } from './components/car-item-edit/car-item-edit.c
     AdminBrandsComponent,
     BrandEditModalComponent,
     CarItemComponent,
-    CarItemEditComponent
+    CarItemEditComponent,
+    AdminOrdersComponent,
+    OrderItemComponent,
+    OderDetailComponent
   ],
   imports: [
     CommonModule,

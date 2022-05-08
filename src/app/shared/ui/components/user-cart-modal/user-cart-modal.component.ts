@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICartModel } from 'src/app/models/i-cart-model';
+import {CartService} from "../../../../services/cart/cart.service";
+import {APIPath} from "../../../../constance/api-path";
 
 @Component({
   selector: 'app-user-cart-modal',
@@ -7,67 +9,25 @@ import { ICartModel } from 'src/app/models/i-cart-model';
   styleUrls: ['./user-cart-modal.component.scss']
 })
 export class UserCartModalComponent implements OnInit {
-  // listUserCartItems: ICartModel[] = [
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1050400,
-  //     image: 'https://choxe.net/blog/wp-content/uploads/2019/01/Mercedes-Benz.png',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //   {
-  //     name: 'Xe điện',
-  //     price: 1000000,
-  //     image: 'https://cafefcdn.com/thumb_w/650/203337114487263232/2022/3/22/photo1647918565447-1647918565543359042692.jpg',
-  //     quantity: 1,
-  //   },
-  //
-  // ];
+  listUserCartItems: ICartModel[] = [];
+  url = APIPath.image.url;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.listenService();
+    console.log('oke');
+  }
+
+  listenService(): void{
+    this.cartService.getListCartDetail()
+      .subscribe(res => {
+        console.log(res);
+        this.listUserCartItems = res;
+      },
+        error => {
+        console.log(error);
+        })
   }
 
 }

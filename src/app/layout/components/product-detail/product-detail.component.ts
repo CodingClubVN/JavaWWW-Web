@@ -6,6 +6,7 @@ import {APIPath} from "../../../constance/api-path";
 import {CartService} from "../../../services/cart/cart.service";
 import {ICartModel} from "../../../models/i-cart-model";
 import {IProductModel} from "../../../models/i-product-model";
+import {NotifyService} from "../../../services/notify/notify.service";
 
 @Component({
   selector: 'app-product-detail',
@@ -15,11 +16,13 @@ import {IProductModel} from "../../../models/i-product-model";
 export class ProductDetailComponent implements OnInit {
   productId: string | null = '';
   productItem: any;
+  listProduct: IProductModel[] =[];
   url = APIPath.image.url;
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private notifyService: NotifyService) { }
 
   ngOnInit(): void {
     this.getIdFormParams();
@@ -40,6 +43,10 @@ export class ProductDetailComponent implements OnInit {
           console.log(this.productItem);
         })
     }
+    this.productService.getProducts()
+      .subscribe(res => {
+        this.listProduct = res;
+      })
   }
 
   customOptions: OwlOptions = {
@@ -82,9 +89,11 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.newCartDetail(cart)
       .subscribe(res => {
         console.log(res);
+        this.notifyService.success('Thêm vào giở hàng thành công');
       },
         error => {
         console.log(error);
+        this.notifyService.error('Thêm vào giỏ hàng thất bại');
         })
   }
 }

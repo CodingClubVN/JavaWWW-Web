@@ -36,7 +36,7 @@
                   </div>
                 </div>
               </th>
-              <td class="border-0 align-middle"><strong>{{item.productDTO?.price | currency: 'VND'}}</strong></td>
+              <td class="border-0 align-middle"><strong>{{item.productDTO?.price | currency: 'USD'}}</strong></td>
               <td class="border-0 align-middle"><strong>{{item.quantity}}</strong></td>
               <td class="border-0 align-middle"><a class="text-dark" (click)="removeItemCart(item)"><i class="fa fa-trash"></i></a></td>
             </tr>
@@ -66,10 +66,10 @@
             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền sản phẩm </strong><strong>{{this.total | currency: 'VND'}}</strong></li>
             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Thuế</strong><strong>$0.00</strong></li>
             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền</strong>
-              <h5 class="font-weight-bold">{{this.total | currency: 'VND'}}</h5>
+              <h5 class="font-weight-bold">{{this.total | currency: 'USD'}}</h5>
             </li>
           </ul>
-          <a routerLink="/cart/info-buy" class="btn btn-dark py-2 px-3 btn-block btn-main">Tiếp tục thanh toán</a>
+          <button class="btn btn-dark py-2 px-3 btn-block btn-main" (click)="submitOrder()">Thanh toán</button>
         </div>
       </div>
     </div>

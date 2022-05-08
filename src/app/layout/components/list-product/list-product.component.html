@@ -7,7 +7,7 @@
     <button *ngFor="let brand of listBrand" (click)="filterByBrand(brand)">
       <div *ngFor="let img of brand.imageDTOs">
         <div *ngIf="img.type === 'logo'">
-          <img src="{{url}}{{img.id}}" width="50%" height="40px">
+          <img src="{{url}}{{img.id}}" width="45px" height="40px">
         </div>
       </div>
     </button>

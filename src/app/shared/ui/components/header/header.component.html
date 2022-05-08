@@ -143,15 +143,17 @@
         </div>
         <div *ngIf="isUserPanelResponsiveOpen && isLoggedIn"
           class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel-control p-3">
-          <button class="btn btn-secondary w-100 text-center mb-2"
-            (click)="isUserPanelResponsiveOpen = false">
-            <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
-              Tài khoản
-            </span>
-          </button>
+<!--          <button class="btn btn-secondary w-100 text-center mb-2"-->
+<!--            (click)="isUserPanelResponsiveOpen = false">-->
+<!--            <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">-->
+<!--              Tài khoản-->
+<!--            </span>-->
+<!--          </button>-->
           <button class="btn btn-secondary w-100 text-center mb-2"
             [routerLink]="['/admin-dashboard']"
-            (click)="isUserPanelResponsiveOpen = false">
+            (click)="isUserPanelResponsiveOpen = false"
+            *ngIf="checkAdmin()"
+          >
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
               Dashboard
             </span>

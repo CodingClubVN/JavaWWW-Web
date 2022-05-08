@@ -16,6 +16,7 @@ import { AdvisoryOffersComponent } from './components/advisory-offers/advisory-o
 import { AdvisoryDealersComponent } from './components/advisory-dealers/advisory-dealers.component';
 import {FormsModule} from "@angular/forms";
 import { CartComponent } from './components/cart/cart.component';
+import {NgxImageZoomModule} from "ngx-image-zoom";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CartComponent } from './components/cart/cart.component';
         UiModule,
         RouterModule,
         CarouselModule,
-        FormsModule
+        FormsModule,
+        NgxImageZoomModule
     ]
 })
 export class LayoutModule { }

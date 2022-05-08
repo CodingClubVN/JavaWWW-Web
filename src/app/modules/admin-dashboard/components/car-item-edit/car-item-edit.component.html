@@ -16,7 +16,7 @@
       </div>
 			<div class="form-floating mb-3">
         <select formControlName="brandId" class="form-select text-dark" id="brandId" aria-label="hãng" style="color: black;">
-          <option *ngFor="let brand of listBrand" [value]="brand.id">{{ brand.name }}</option>
+          <option *ngFor="let brand of listBrand" [value]="brand.id"  class="text-dark">{{ brand.name }}</option>
         </select>
         <label for="brandId" class="text-dark">Hãng</label>
       </div>
@@ -34,7 +34,7 @@
       </div>
       <div class="form-floating">
         <select formControlName="categoryId" class="form-select text-dark" id="categoryId" aria-label="Phân loại" style="color: black;">
-          <option *ngFor="let category of categories" [value]="category.id" >{{ category.name }}</option>
+          <option *ngFor="let category of categories" [value]="category.id" class="text-dark">{{ category.name }}</option>
         </select>
         <label for="categoryId" class="text-dark">Phân loại</label>
       </div>

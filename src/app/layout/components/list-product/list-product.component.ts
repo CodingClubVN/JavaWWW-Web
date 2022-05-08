@@ -18,6 +18,7 @@ export class ListProductComponent implements OnInit {
   listProduct: IProductModel[] = [];
   listProductBackUp: IProductModel[] = [];
   listBrand: IBrandModel[] = [];
+  listBrandBackup: IBrandModel[] = [];
   listCategory: ICategoryDTOModel[] = [];
   url = APIPath.image.url;
 
@@ -61,11 +62,8 @@ export class ListProductComponent implements OnInit {
 
 
   filterByCategory(category: ICategoryDTOModel): void {
-    // this.listenService();
-    console.log(category.id);
-    console.log(this.listProduct);
+    this.listProduct = this.listProductBackUp;
     this.listProduct = this.listProduct.filter(res => res.categoryDTO?.id === category.id);
-    console.log(this.listProduct);
   }
 
   filterByBrand(brand: IBrandModel): void {

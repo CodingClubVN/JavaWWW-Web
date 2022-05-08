@@ -16,19 +16,100 @@
       <div class="div-image">
         <img class="image-dealer" src="{{item.image}}" alt="image">
       </div>
-     <div class="div-content">
-       <div class="name-dealer">
-         {{item.name}}
-       </div>
-       <div class="connect-dealer">
-         <p class="address-dealer">
-           <span class="h6">Địa chỉ:</span> {{item.address}}
-         </p>
-         <p class="phone-dealer">
-           <span class="h6">Điện thoại:</span> {{item.phone}}
-         </p>
-       </div>
-     </div>
+      <div class="div-content">
+        <div class="name-dealer">
+          {{item.name}}
+        </div>
+        <div class="connect-dealer">
+          <p class="address-dealer">
+            <span class="h6">Địa chỉ:</span> {{item.address}}
+          </p>
+          <p class="phone-dealer">
+            <span class="h6">Điện thoại:</span> {{item.phone}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="h4 mt-3">
+    2. Đại lý, Showroom Mercedes-Benz tại Bình Dương
+  </p>
+  <p class="mt-3 mb-3">
+    Vừa mới được thành lập khoảng 2 năm nhưng số lượng xe bán ra của Mercedes Benz Bình Dương là rất tốt. Dân số có thu nhập cao ngày càng tăng và số lượng người mong muốn sở hữu các dòng xe của Mẹc cũng rất nhiều. Chính vì vậy Mercedes Benz Việt Nam đã ưu ái xây dựng một Showroom có diện tích vô cùng lớn tới 7.260 m2 và đạt tiêu chuẩn toàn cầu để phục vụ người dân nơi đây.
+  </p>
+  <div class="list-dealer">
+    <div class="dealer" *ngFor="let item of dealers.binhDuong">
+      <div class="div-image">
+        <img class="image-dealer" src="{{item.image}}" alt="image">
+      </div>
+      <div class="div-content">
+        <div class="name-dealer">
+          {{item.name}}
+        </div>
+        <div class="connect-dealer">
+          <p class="address-dealer">
+            <span class="h6">Địa chỉ:</span> {{item.address}}
+          </p>
+          <p class="phone-dealer">
+            <span class="h6">Điện thoại:</span> {{item.phone}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="h2 mt-3">
+    II. Đại lý, Showroom Mercedes-Benz tại Miền Bắc
+  </p>
+  <p class="h4 mt-3">
+    1. Đại lý, Showroom Mercedes-Benz tại Hà Nội
+  </p>
+  <p class="mt-3 mb-3">
+    Thủ đô Hà Nội cũng có sự phát triển vô cùng mạnh mẽ trong những năm gần đây. Thị trường xe hơi bán ra được thống kê tốt nhất tại Việt Nam. Mercedes Benz Việt Nam cũng vô cùng tự hào với 5 Showroom được đạt tại nơi đây với tiêu chuẩn tốt nhất. Dưới đây là danh sách tổng hợp 5 Showroom Mercedes tại Hà Nội Quý khách hàng có thể tham khảo và chọn mua cho mình chiếc xe ưng ý nhất.
+  </p>
+  <div class="list-dealer">
+    <div class="dealer" *ngFor="let item of dealers.haNoi">
+      <div class="div-image">
+        <img class="image-dealer" src="{{item.image}}" alt="image">
+      </div>
+      <div class="div-content">
+        <div class="name-dealer">
+          {{item.name}}
+        </div>
+        <div class="connect-dealer">
+          <p class="address-dealer">
+            <span class="h6">Địa chỉ:</span> {{item.address}}
+          </p>
+          <p class="phone-dealer">
+            <span class="h6">Điện thoại:</span> {{item.phone}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="h4 mt-3">
+    2. Đại lý, Showroom Mercedes-Benz tại Hạ Long, Quảng Ninh
+  </p>
+  <p class="mt-3 mb-3">
+    Nhằm đáp ứng nhu cầu mua xe Mercedes tại Quảng Ninh. An Du Mercedes Benz đã xây dựng đại lý có quy mô tiêu chuẩn toàn cầu với diện tích lên đến 4.400m2. Mời Quý khách hàng cùng xem thêm chi tiết để biết thêm chi tiết về Showroom này nhé.
+  </p>
+  <div class="list-dealer">
+    <div class="dealer" *ngFor="let item of dealers.haLong">
+      <div class="div-image">
+        <img class="image-dealer" src="{{item.image}}" alt="image">
+      </div>
+      <div class="div-content">
+        <div class="name-dealer">
+          {{item.name}}
+        </div>
+        <div class="connect-dealer">
+          <p class="address-dealer">
+            <span class="h6">Địa chỉ:</span> {{item.address}}
+          </p>
+          <p class="phone-dealer">
+            <span class="h6">Điện thoại:</span> {{item.phone}}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

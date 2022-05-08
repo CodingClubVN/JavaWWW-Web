@@ -1,0 +1,22 @@
+<div class="w-100 h-100 py-2">
+  <div class="w-100 h-100 bg-dark rounded rounded-3 p-3 d-flex flex-column">
+    <div class="w-100 d-flex">
+      <div class="d-flex">
+        <input class="form-control me-2 text-dark" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm"
+          [(ngModel)]="search">
+        <button class="btn btn-danger me-2" (click)="clearSearch()">
+          <i class="fas fa-times"></i>
+        </button>
+        <button class="btn btn-primary" (click)="onSearch()">Tìm</button>
+      </div>
+      <button class="btn btn-success mx-2" (click)="openAddDialog()">Thêm</button>
+    </div>
+    <div class="w-100 mt-3 flex-grow-1 overflow-auto">
+      <div class="row">
+        <div class="col-sm-12 mt-3" *ngFor="let order of showedOrders">
+          <app-order-item [order]="order" (click)="openAddDialog(order)"></app-order-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

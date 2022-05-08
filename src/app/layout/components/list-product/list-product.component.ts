@@ -49,7 +49,7 @@ export class ListProductComponent implements OnInit {
         error => {
           console.log(error);
         })
-    this.categoryService.getCategory()
+    this.categoryService.getCategories()
       .subscribe(res => {
           this.listCategory = res;
           console.log(this.listCategory);

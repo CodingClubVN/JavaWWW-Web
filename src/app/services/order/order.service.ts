@@ -24,6 +24,24 @@ export class OrderService {
     )
   }
 
+  getOrder(id: number): Observable<IOrderModel> {
+    const path = `${environment.apiPath}/${APIPath.order.detail}/${id}`;
+    return this.apiService.get(path).pipe(
+      map((res: HttpResponse<any>) => {
+        return res.body;
+      })
+    )
+  }
+
+  updateOrderStatus(id: number, status: string) {
+    const path = `${environment.apiPath}/${APIPath.order.updateStatus}/${id}`;
+    return this.apiService.put(path, { status }).pipe(
+      map((res: HttpResponse<any>) => {
+        return res.body;
+      })
+    )
+  }
+
   newCartDetail(order: IOrderModel): Observable<IBrandModel> {
     const path = `${environment.apiPath}/${APIPath.order.new}`;
     return this.apiService.post(path, order).pipe(

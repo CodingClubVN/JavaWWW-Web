@@ -14,4 +14,5 @@ export class IProductModel {
   imageDTO: IImageDTO[] | undefined;
   brandDTO?: IBrandModel;
   categoryDTO?: ICategoryDTOModel;
+  brand?: IBrandModel;
 }

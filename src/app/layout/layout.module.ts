@@ -14,6 +14,8 @@ import { MaintenanceComponent } from './components/maintenance/maintenance.compo
 import { WarrantyAndInsuranceComponent } from './components/warranty-and-insurance/warranty-and-insurance.component';
 import { AdvisoryOffersComponent } from './components/advisory-offers/advisory-offers.component';
 import { AdvisoryDealersComponent } from './components/advisory-dealers/advisory-dealers.component';
+import {FormsModule} from "@angular/forms";
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -27,13 +29,15 @@ import { AdvisoryDealersComponent } from './components/advisory-dealers/advisory
     WarrantyAndInsuranceComponent,
     AdvisoryOffersComponent,
     AdvisoryDealersComponent,
+    CartComponent,
   ],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule,
-    UiModule,
-    RouterModule,
-    CarouselModule
-  ]
+    imports: [
+        CommonModule,
+        LayoutRoutingModule,
+        UiModule,
+        RouterModule,
+        CarouselModule,
+        FormsModule
+    ]
 })
 export class LayoutModule { }

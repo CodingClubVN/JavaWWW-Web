@@ -11,6 +11,7 @@ export class IProductModel {
   createdDate: Date | undefined;
   updatedDate: Date | undefined;
   imageDTOs: IImageDTO[] | undefined;
+  imageDTO: IImageDTO[] | undefined;
   brandDTO?: IBrandModel;
   categoryDTO?: ICategoryDTOModel;
 }

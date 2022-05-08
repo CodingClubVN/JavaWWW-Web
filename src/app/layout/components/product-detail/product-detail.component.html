@@ -29,9 +29,9 @@
           </div>
           <div class="mt-4 row">
             <div class="col-3">
-              <input type="text" class="form-control" value="1">
+              <input type="text" class="form-control" value="1" [(ngModel)]="quantity">
             </div>
-            <button class="btn btn-dark text-light col-7">Thêm vào giỏ hàng</button>
+            <button class="btn btn-dark text-light col-7" (click)="addCart()">Thêm vào giỏ hàng</button>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import {MaintenanceComponent} from "./components/maintenance/maintenance.compone
 import {WarrantyAndInsuranceComponent} from "./components/warranty-and-insurance/warranty-and-insurance.component";
 import {AdvisoryOffersComponent} from "./components/advisory-offers/advisory-offers.component";
 import {AdvisoryDealersComponent} from "./components/advisory-dealers/advisory-dealers.component";
+import {CartComponent} from "./components/cart/cart.component";
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
       {
         path:'advisory/dealers',
         component: AdvisoryDealersComponent
+      },
+      {
+        path: 'cart',
+        component: CartComponent
       }
     ]
   }

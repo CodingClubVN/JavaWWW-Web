@@ -3,6 +3,9 @@ import {OwlOptions} from "ngx-owl-carousel-o";
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../../services/product/product.service";
 import {APIPath} from "../../../constance/api-path";
+import {CartService} from "../../../services/cart/cart.service";
+import {ICartModel} from "../../../models/i-cart-model";
+import {IProductModel} from "../../../models/i-product-model";
 
 @Component({
   selector: 'app-product-detail',
@@ -15,7 +18,8 @@ export class ProductDetailComponent implements OnInit {
   url = APIPath.image.url;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private productService: ProductService) { }
+              private productService: ProductService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getIdFormParams();
@@ -61,5 +65,26 @@ export class ProductDetailComponent implements OnInit {
       },
     },
     nav: true
+  }
+  quantity = 1;
+
+  addCart(): void{
+    const cart = new ICartModel();
+    this.createCartDetal(cart);
+  }
+  createCartDetal(cart: ICartModel): void{
+    const product = new IProductModel();
+    if(this.productId){
+      product.id = parseInt(this.productId);
+    }
+    cart.product = product;
+    cart.quantity = this.quantity;
+    this.cartService.newCartDetail(cart)
+      .subscribe(res => {
+        console.log(res);
+      },
+        error => {
+        console.log(error);
+        })
   }
 }

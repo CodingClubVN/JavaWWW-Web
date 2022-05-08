@@ -1,22 +1,22 @@
-<div class="user-cart p-3 rounded rounded-3 d-flex flex-column shadow-lg bg-body">
-  <div class="h4 text-dark p-0 m-0">Giỏ hàng</div>
-  <div class="list flex-grow-1 overflow-auto">
-    <div class="list-item d-flex align-items-center py-2" *ngFor="let item of listUserCartItems">
-      <div class="item-img me-2 d-flex justify-content-center align-items-center">
-        <img class="w-100 ratio ratio-1x1" [src]="item.image">
-      </div>
-      <div class="list-item-info d-flex justify-content-between w-100 align-items-center">
-        <div>
-          <p class="text-bold text-dark p-0">{{ item.name }}</p>
-          <div class="item-quantity-control">
-            <button class="btn btn-transparent text-primary py-0 px-0" (click)="item.quantity = item.quantity - 1">-</button>
-            <input type="number" minlength="1" maxlength="2" min="1" max="99" [(ngModel)]="item.quantity" class="border-0 text-muted p-0 d-inline-block bg-light mx-2 text-center">
-            <button class="btn btn-transparent text-danger py-0 px-0" (click)="item.quantity = item.quantity + 1">+</button>
-          </div>
-        </div>
-        <p class="text-dark p-0">{{ item.price * item.quantity / 1000 | currency:'VND':'symbol':'4.2-2' }}</p>
-      </div>
-    </div>
-  </div>
-  <button class="btn btn-primary w-100 text-bold mt-2">Xem giỏ hàng</button>
-</div>
+<!--<div class="user-cart p-3 rounded rounded-3 d-flex flex-column shadow-lg bg-body">-->
+<!--  <div class="h4 text-dark p-0 m-0">Giỏ hàng</div>-->
+<!--  <div class="list flex-grow-1 overflow-auto">-->
+<!--    <div class="list-item d-flex align-items-center py-2" *ngFor="let item of listUserCartItems">-->
+<!--      <div class="item-img me-2 d-flex justify-content-center align-items-center">-->
+<!--        <img class="w-100 ratio ratio-1x1" [src]="item.image">-->
+<!--      </div>-->
+<!--      <div class="list-item-info d-flex justify-content-between w-100 align-items-center">-->
+<!--        <div>-->
+<!--          <p class="text-bold text-dark p-0">{{ item.name }}</p>-->
+<!--          <div class="item-quantity-control">-->
+<!--            <button class="btn btn-transparent text-primary py-0 px-0" (click)="item.quantity = item.quantity - 1">-</button>-->
+<!--            <input type="number" minlength="1" maxlength="2" min="1" max="99" [(ngModel)]="item.quantity" class="border-0 text-muted p-0 d-inline-block bg-light mx-2 text-center">-->
+<!--            <button class="btn btn-transparent text-danger py-0 px-0" (click)="item.quantity = item.quantity + 1">+</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <p class="text-dark p-0">{{ item.price * item.quantity / 1000 | currency:'VND':'symbol':'4.2-2' }}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button class="btn btn-primary w-100 text-bold mt-2">Xem giỏ hàng</button>-->
+<!--</div>-->

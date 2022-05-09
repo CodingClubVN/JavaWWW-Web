@@ -2,9 +2,33 @@
   background-color: #262626;
 }
 .img-cover{
-  background-image:linear-gradient(to right, black 1%, transparent 80%), url("/assets/media/img-cover.webp");
+  background-image:linear-gradient(to right, black 1%, transparent 80%), url("https://res.cloudinary.com/awi-ln/image/upload/v1652082502/stageelement.MQ6.0.stage.20220127154102_ij2flt.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 600px;
+}
+.table tr:nth-child(even){
+  background-color: #ececec !important;
+}
+//.table-striped tr:nth-child(odd){
+//  background-color: white !important;
+//}
+.table{
+  background-color: white !important;
+}
+.table-gia{
+  background-color: white !important;
+  margin-top: 50px;
+}
+.text-title-dong{
+  color: blue !important;
+  font-weight: bold;
+}
+.text-title{
+  color: black!important;
+  font-weight: bold;
+}
+.text{
+  color: black !important;
 }

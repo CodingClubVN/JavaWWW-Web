@@ -6,8 +6,8 @@
 
     <div class="d-flex">
       <button #openMenu (click)="toggleMenu()" class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-        aria-label="Toggle navigation">
+              data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+              aria-label="Toggle navigation">
         <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
           <i [class]="'text-dark fas fa-' + (isMenuOpen ? 'times' : 'bars')"></i>
         </span>
@@ -15,9 +15,9 @@
       <ul class="navbar-nav me-auto d-block d-xl-none">
         <li class="nav-item">
           <button (click)="headerMenuConfig[0]?.subMenu == null ? null : openSubMenuModal(headerMenuConfig[0])"
-            class="nav-link cursor-pointer btn btn-transparent mx-3"
-            [routerLink]="headerMenuConfig[0]?.subMenu == null ? headerMenuConfig[0].url : null"
-            routerLinkActive="active">
+                  class="nav-link cursor-pointer btn btn-transparent mx-3"
+                  [routerLink]="headerMenuConfig[0]?.subMenu == null ? headerMenuConfig[0].url : null"
+                  routerLinkActive="active">
             <i class="fas fa-car"></i>
           </button>
         </li>
@@ -35,13 +35,13 @@
           </span>
         </button>
         <div *ngIf="isUserCartOpen"
-          class="position-absolute rounded rounded-3 bg-light user-cart d-flex justify-content-between">
+             class="position-absolute rounded rounded-3 bg-light user-cart d-flex justify-content-between">
           <app-user-cart-modal></app-user-cart-modal>
         </div>
       </div>
       <div class="position-relative d-xl-none">
         <button #account class="ms-2 btn btn-transparent" (click)="toggleUserPanel()"
-          *ngIf="!isLoggedIn;else userProfile">
+                *ngIf="!isLoggedIn;else userProfile">
           <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
             <i class="fas fa-user"></i>
           </span>
@@ -50,13 +50,13 @@
           <button #account class="ms-2 btn btn-transparent" (click)="toggleUserPanel()">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
               <img class="rounded-circle" src="https://choxe.net/blog/wp-content/uploads/2019/01/Mercedes-Benz.png"
-                width="30px" height="30px" />
+                   width="30px" height="30px"/>
             </span>
           </button>
         </ng-template>
 
         <div *ngIf="isUserPanelOpen && !isLoggedIn"
-          class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel d-flex justify-content-between p-3">
+             class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel d-flex justify-content-between p-3">
           <button class="btn btn-primary" [routerLink]="['/auth', 'login']" (click)="isUserPanelOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
               Đăng nhập
@@ -69,21 +69,28 @@
           </button>
         </div>
         <div *ngIf="isUserPanelOpen && isLoggedIn"
-          class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel-control p-3">
+             class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel-control p-3">
           <button class="btn btn-secondary w-100 text-center mb-2" [routerLink]="['/auth', 'register']"
-            (click)="isUserPanelOpen = false">
+                  (click)="isUserPanelOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
               Tài khoản
             </span>
           </button>
+          <button class="btn btn-secondary w-100 text-center mb-2" [routerLink]="['order']"
+                  (click)="isUserPanelOpen = false">
+            <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
+              Đơn hàng
+            </span>
+          </button>
           <button class="btn btn-secondary w-100 text-center mb-2" [routerLink]="['/admin-dashboard']"
-            (click)="isUserPanelOpen = false">
+                  (click)="isUserPanelOpen = false"
+                  *ngIf="checkAdmin()">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
               Dashboard
             </span>
           </button>
           <button class="btn btn-secondary w-100 text-center" [routerLink]="['/auth', 'register']"
-            (click)="isUserPanelOpen = false">
+                  (click)="isUserPanelOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center" (click)="logout()">
               Đăng xuất
             </span>
@@ -95,7 +102,7 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item" *ngFor="let link of headerMenuConfig">
           <a (click)="link?.subMenu == null ? null : openSubMenuModal(link)" class="nav-link cursor-pointer"
-            [routerLink]="link?.subMenu == null ? [link.url] : null" routerLinkActive="active">{{ link.name }}</a>
+             [routerLink]="link?.subMenu == null ? [link.url] : null" routerLinkActive="active">{{ link.name }}</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -109,12 +116,13 @@
           </span>
         </button>
         <div *ngIf="isUserCartResponsiveOpen"
-          class="position-absolute rounded rounded-3 bg-light user-cart d-flex justify-content-between">
+             class="position-absolute rounded rounded-3 bg-light user-cart d-flex justify-content-between">
           <app-user-cart-modal></app-user-cart-modal>
         </div>
       </div>
       <div class="position-relative d-none d-xl-block">
-        <button #accountResponsive class="ms-2 btn btn-transparent" (click)="toggleUserPanelResponsive()" *ngIf="!isLoggedIn; else userProfileResponsive">
+        <button #accountResponsive class="ms-2 btn btn-transparent" (click)="toggleUserPanelResponsive()"
+                *ngIf="!isLoggedIn; else userProfileResponsive">
           <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
             <i class="fas fa-user"></i>
           </span>
@@ -122,45 +130,52 @@
         <ng-template #userProfileResponsive>
           <button #accountResponsive class="ms-2 btn btn-transparent" (click)="toggleUserPanelResponsive()">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
-              <img class="rounded-circle" src="https://choxe.net/blog/wp-content/uploads/2019/01/Mercedes-Benz.png" width="30px"
-                height="30px" />
+              <img class="rounded-circle" src="https://choxe.net/blog/wp-content/uploads/2019/01/Mercedes-Benz.png"
+                   width="30px"
+                   height="30px"/>
             </span>
           </button>
         </ng-template>
         <div *ngIf="isUserPanelResponsiveOpen && !isLoggedIn"
-          class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel d-flex justify-content-between p-3">
+             class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel d-flex justify-content-between p-3">
           <button class="btn btn-primary" [routerLink]="['/auth', 'login']" (click)="isUserPanelResponsiveOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
               Đăng nhập
             </span>
           </button>
           <button class="btn btn-secondary" [routerLink]="['/auth', 'register']"
-            (click)="isUserPanelResponsiveOpen = false">
+                  (click)="isUserPanelResponsiveOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-between align-items-center">
               Đăng ký
             </span>
           </button>
         </div>
         <div *ngIf="isUserPanelResponsiveOpen && isLoggedIn"
-          class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel-control p-3">
+             class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel-control p-3">
           <button class="btn btn-secondary w-100 text-center mb-2"
                   [routerLink]="['/user']"
-            (click)="isUserPanelResponsiveOpen = false">
+                  (click)="isUserPanelResponsiveOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
               Tài khoản
             </span>
           </button>
+          <button class="btn btn-secondary w-100 text-center mb-2" [routerLink]="['order']"
+                  (click)="isUserPanelOpen = false">
+            <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
+              Đơn hàng
+            </span>
+          </button>
           <button class="btn btn-secondary w-100 text-center mb-2"
-            [routerLink]="['/admin-dashboard']"
-            (click)="isUserPanelResponsiveOpen = false"
-            *ngIf="checkAdmin()"
+                  [routerLink]="['/admin-dashboard']"
+                  (click)="isUserPanelResponsiveOpen = false"
+                  *ngIf="checkAdmin()"
           >
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
               Dashboard
             </span>
           </button>
           <button class="btn btn-secondary w-100 text-center"
-            (click)="isUserPanelResponsiveOpen = false">
+                  (click)="isUserPanelResponsiveOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center" (click)="logout()">
               Đăng xuất
             </span>

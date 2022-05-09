@@ -183,6 +183,7 @@ export class CarItemEditComponent implements OnInit {
           this.dialogRef.close(true)
         },
         err => {
+          console.log(err);
           this.onError(),
           this.dialogRef.close(false)
         }

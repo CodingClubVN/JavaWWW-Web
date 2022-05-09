@@ -20,6 +20,8 @@ import {NgxImageZoomModule} from "ngx-image-zoom";
 import {UserComponent} from './components/user/user.component';
 import {EditUserModalComponent} from './components/user/component/edit-user-modal/edit-user-modal.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { OrderMeComponent } from './components/order-me/order-me.component';
+import { OrderDetailModalComponent } from './components/order-me/component/order-detail-modal/order-detail-modal.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     CartComponent,
     UserComponent,
     EditUserModalComponent,
+    OrderMeComponent,
+    OrderDetailModalComponent,
   ],
   imports: [
     CommonModule,

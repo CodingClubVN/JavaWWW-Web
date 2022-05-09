@@ -36,6 +36,8 @@ export class EditUserModalComponent implements OnInit {
       .subscribe(
         res => {
           this.dialogRef.close(true)
+        },error => {
+          this.dialogRef.close(false)
         }
       )
   }

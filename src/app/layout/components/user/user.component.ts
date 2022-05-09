@@ -40,10 +40,10 @@ export class UserComponent implements OnInit {
       data: this.myUser
     })
     dialogRef.afterClosed().subscribe(result => {
-      if (result == true) {
+      if (result === true) {
         this.listenService();
         this.notifyService.success('Cập nhật thông tin thành công');
-      }else{
+      }else if(result === true){
         this.notifyService.error('Cập nhật thông tin thất bại');
       }
     });

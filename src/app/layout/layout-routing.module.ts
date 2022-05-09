@@ -11,6 +11,7 @@ import {AdvisoryDealersComponent} from "./components/advisory-dealers/advisory-d
 import {CartComponent} from "./components/cart/cart.component";
 import {ListProductComponent} from "./components/list-product/list-product.component";
 import {UserComponent} from "./components/user/user.component";
+import {OrderMeComponent} from "./components/order-me/order-me.component";
 
 const routes: Routes = [
   {
@@ -60,12 +61,16 @@ const routes: Routes = [
         component: CartComponent
       },
       {
-        path: 'buy-online/  list-product',
+        path: 'buy-online/list-product',
         component: ListProductComponent
       },
       {
         path: 'user',
         component: UserComponent
+      },
+      {
+        path: 'order',
+        component: OrderMeComponent
       }
     ]
   }

@@ -14,6 +14,7 @@ import { MaintenanceComponent } from './components/maintenance/maintenance.compo
 import { WarrantyAndInsuranceComponent } from './components/warranty-and-insurance/warranty-and-insurance.component';
 import { AdvisoryOffersComponent } from './components/advisory-offers/advisory-offers.component';
 import { AdvisoryDealersComponent } from './components/advisory-dealers/advisory-dealers.component';
+import { AdvisoryBrochureComponent } from './components/advisory-brochure/advisory-brochure.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AdvisoryDealersComponent } from './components/advisory-dealers/advisory
     WarrantyAndInsuranceComponent,
     AdvisoryOffersComponent,
     AdvisoryDealersComponent,
+    AdvisoryBrochureComponent,
   ],
   imports: [
     CommonModule,

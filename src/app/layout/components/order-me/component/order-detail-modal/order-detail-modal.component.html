@@ -16,7 +16,7 @@
       <h6 class="my-auto">Trạng thái đơn hàng:</h6> <p class="ms-2 my-auto">{{this.orderDetail?.status}}</p>
     </div>
     <div class="d-flex mt-2">
-      <h6 class="my-auto">Tổng tiền:</h6> <p class="ms-2 my-auto">{{this.orderDetail?.total}}</p>
+      <h6 class="my-auto">Tổng tiền:</h6> <p class="ms-2 my-auto">{{this.orderDetail?.total | currency: 'USD'}}</p>
     </div>
     <div class="mt-2 text-center">
       <h5 class="fw-bold">Sản phẩm</h5>

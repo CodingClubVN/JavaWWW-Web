@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import {LayoutRoutingModule} from './layout-routing.module';
 import {LayoutComponent} from './layout.component';
@@ -22,6 +22,7 @@ import {EditUserModalComponent} from './components/user/component/edit-user-moda
 import {MatDialogModule} from "@angular/material/dialog";
 import { OrderMeComponent } from './components/order-me/order-me.component';
 import { OrderDetailModalComponent } from './components/order-me/component/order-detail-modal/order-detail-modal.component';
+import { AdvisoryBrochureComponent } from './components/advisory-brochure/advisory-brochure.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { OrderDetailModalComponent } from './components/order-me/component/order
     EditUserModalComponent,
     OrderMeComponent,
     OrderDetailModalComponent,
+    AdvisoryBrochureComponent,
   ],
   imports: [
     CommonModule,
@@ -53,5 +55,4 @@ import { OrderDetailModalComponent } from './components/order-me/component/order
     ReactiveFormsModule
   ]
 })
-export class LayoutModule {
-}
+export class LayoutModule { }

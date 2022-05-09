@@ -12,6 +12,7 @@ import {CartComponent} from "./components/cart/cart.component";
 import {ListProductComponent} from "./components/list-product/list-product.component";
 import {UserComponent} from "./components/user/user.component";
 import {OrderMeComponent} from "./components/order-me/order-me.component";
+import {AdvisoryBrochureComponent} from "./components/advisory-brochure/advisory-brochure.component";
 
 const routes: Routes = [
   {
@@ -71,6 +72,10 @@ const routes: Routes = [
       {
         path: 'order',
         component: OrderMeComponent
+      },
+      {
+        path: 'advisory/brochure',
+        component: AdvisoryBrochureComponent
       }
     ]
   }

@@ -1,0 +1,53 @@
+*{
+  color: black !important;
+}
+.image-dealer{
+  width: 100%;
+  height: 262px;
+}
+.list-dealer{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+.dealer{
+  width: calc(33.33% - 10px);
+  margin: 5px 5px;
+  display: flex;
+  flex-direction: column;
+}
+.div-content{
+  flex: 1;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+.name-dealer{
+  flex-shrink: 0;
+}
+.connect-dealer{
+  flex: 1;
+  margin-top: auto;
+}
+
+.name-dealer{
+  margin: 10px 0;
+  text-align: center;
+  color: red !important;
+}
+@media (max-width: 576px) {
+  .dealer{
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .dealer{
+    width: calc(50% - 10px);
+  }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+  .dealer{
+    width: calc(50% - 10px);
+  }
+}

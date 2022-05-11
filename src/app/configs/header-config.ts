@@ -4,7 +4,7 @@ export const HeaderConfig: { menu: ILink[] } = {
   menu: [
     {
       name: 'Các dòng xe',
-      url: '/cars',
+      url: '/car',
       icon: 'fa fa-car',
       subMenu: [
         // {

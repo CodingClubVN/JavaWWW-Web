@@ -13,6 +13,8 @@ import {ListProductComponent} from "./components/list-product/list-product.compo
 import {UserComponent} from "./components/user/user.component";
 import {OrderMeComponent} from "./components/order-me/order-me.component";
 import {AdvisoryBrochureComponent} from "./components/advisory-brochure/advisory-brochure.component";
+import {SuvInfoComponent} from "./components/suv-info/suv-info.component";
+import {CoupeComponent} from "./components/coupe/coupe.component";
 
 const routes: Routes = [
   {
@@ -76,6 +78,14 @@ const routes: Routes = [
       {
         path: 'advisory/brochure',
         component: AdvisoryBrochureComponent
+      },
+      {
+        path: 'car/suv',
+        component: SuvInfoComponent
+      },
+      {
+        path: 'car/coupe',
+        component: CoupeComponent
       }
     ]
   }

@@ -1,0 +1,17 @@
+.text-light{
+  color: white !important;
+}
+.img-cover{
+  background-image:linear-gradient(to right, black 1%, transparent 80%), url("/assets/media/coupe-cover-img.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+}
+
+.outer{
+  background-color: #262626;
+}
+li{
+  margin-bottom: 10px;
+}

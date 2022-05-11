@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from "ngx-owl-carousel-o";
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../../services/product/product.service";
@@ -16,27 +16,29 @@ import {NotifyService} from "../../../services/notify/notify.service";
 export class ProductDetailComponent implements OnInit {
   productId: string | null = '';
   productItem: any;
-  listProduct: IProductModel[] =[];
+  listProduct: IProductModel[] = [];
   url = APIPath.image.url;
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
               private cartService: CartService,
-              private notifyService: NotifyService) { }
+              private notifyService: NotifyService) {
+  }
 
   ngOnInit(): void {
     this.getIdFormParams();
     this.listenState();
   }
 
-  getIdFormParams(): void{
+  getIdFormParams(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.productId = params.get('id');
       console.log(this.productId);
     });
   }
-  listenState(): void{
-    if(this.productId){
+
+  listenState(): void {
+    if (this.productId) {
       this.productService.getProduct(parseInt(this.productId))
         .subscribe(res => {
           this.productItem = res;
@@ -75,25 +77,27 @@ export class ProductDetailComponent implements OnInit {
   }
   quantity = 1;
 
-  addCart(): void{
+  addCart(): void {
     const cart = new ICartModel();
     this.createCartDetal(cart);
   }
-  createCartDetal(cart: ICartModel): void{
+
+  createCartDetal(cart: ICartModel): void {
     const product = new IProductModel();
-    if(this.productId){
+    if (this.productId) {
       product.id = parseInt(this.productId);
     }
     cart.product = product;
     cart.quantity = this.quantity;
     this.cartService.newCartDetail(cart)
       .subscribe(res => {
-        console.log(res);
-        this.notifyService.success('Thêm vào giở hàng thành công');
-      },
+          console.log(res);
+          this.notifyService.success('Thêm vào giở hàng thành công');
+        },
         error => {
-        console.log(error);
-        this.notifyService.error('Thêm vào giỏ hàng thất bại');
+          console.log(error);
+          window.location.href = 'auth/login';
+          this.notifyService.error('Thêm vào giỏ hàng thất bại');
         })
   }
 }

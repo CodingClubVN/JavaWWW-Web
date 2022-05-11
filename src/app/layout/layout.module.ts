@@ -23,6 +23,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { OrderMeComponent } from './components/order-me/order-me.component';
 import { OrderDetailModalComponent } from './components/order-me/component/order-detail-modal/order-detail-modal.component';
 import { AdvisoryBrochureComponent } from './components/advisory-brochure/advisory-brochure.component';
+import { SuvInfoComponent } from './components/suv-info/suv-info.component';
+import { CoupeComponent } from './components/coupe/coupe.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { AdvisoryBrochureComponent } from './components/advisory-brochure/adviso
     OrderMeComponent,
     OrderDetailModalComponent,
     AdvisoryBrochureComponent,
+    SuvInfoComponent,
+    CoupeComponent,
   ],
   imports: [
     CommonModule,

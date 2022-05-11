@@ -26,4 +26,7 @@ export class BrandItemComponent implements OnInit {
     })
   }
 
+  getTimeStamp() {
+    return new Date().getTime();
+  }
 }

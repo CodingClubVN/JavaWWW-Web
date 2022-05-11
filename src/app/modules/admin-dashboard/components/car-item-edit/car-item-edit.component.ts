@@ -31,6 +31,7 @@ export class CarItemEditComponent implements OnInit {
   previewImg!: any;
   listBrand!: IBrandModel[];
   categories!: ICategoryDTOModel[];
+  imgId = 0;
 
   constructor(
     public dialogRef: MatDialogRef<CarItemEditComponent>,
@@ -64,8 +65,9 @@ export class CarItemEditComponent implements OnInit {
   getLogoImg(): void {
     this.product?.imageDTOs?.forEach((img: IImageDTO) => {
       if (img.type == 'thumbnail') {
-        this.previewImg.style.backgroundImage = `url(${environment.apiPath}/images/${img.id})`;
+        this.previewImg.style.backgroundImage = `url(${environment.apiPath}/images/${img.id}?q=${this.getTimeStamp()})`;
         this.previewImg.style.backgroundSize = '100% 100%';
+        this.imgId = img.id ? img.id : 0;
       }
     })
   }
@@ -136,7 +138,9 @@ export class CarItemEditComponent implements OnInit {
         if(!this.selectedFile?.pending) {
           this.dialogRef.close(true)
         }
-        this.uploadImage(body);
+        if(this.imgId != 0) {
+          this.updateImage(this.imgId);
+        }
       } else {
         this.dialogRef.close(false);
       }
@@ -193,6 +197,25 @@ export class CarItemEditComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  updateImage(id: number) {
+    if (this.selectedFile?.pending) {
+      this.imageService.updateImage(this.selectedFile.file, id).subscribe(
+        res => {
+          this.onSuccess(),
+            this.dialogRef.close(true)
+        },
+        err => {
+          this.onError(),
+            this.dialogRef.close(false)
+        }
+      )
+    }
+  }
+
+  getTimeStamp() {
+    return new Date().getTime().toString();
   }
 
 }

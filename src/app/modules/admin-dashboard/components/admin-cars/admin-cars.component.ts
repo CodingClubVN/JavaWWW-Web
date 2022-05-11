@@ -66,5 +66,8 @@ export class AdminCarsComponent implements OnInit {
     });
   }
 
+  getTimeStamp() {
+    return new Date().getTime();
+  }
 
 }

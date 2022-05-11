@@ -28,4 +28,7 @@ export class CarItemComponent implements OnInit {
     this.brandLogo = this.product.brandDTO?.imageDTOs?.find(img => img.type == 'logo');
   }
 
+  getTimeStamp() {
+    return new Date().getTime();
+  }
 }

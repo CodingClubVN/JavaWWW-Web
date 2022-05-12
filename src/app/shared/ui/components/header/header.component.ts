@@ -24,8 +24,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('accountResponsive') accountResponsive!: ElementRef;
   @ViewChild('cartResponsive') cartResponsive!: ElementRef;
 
-  // login logic
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
 
   constructor(
     private modalService: BsModalService,
@@ -42,7 +41,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     const token = this.storageService.getToken();
     if(token){
       this.isLoggedIn = true
-      this.isUserPanelResponsiveOpen = true;
+      this.isUserPanelResponsiveOpen = false;
       return true;
     }else{
       this.isUserPanelResponsiveOpen = true;

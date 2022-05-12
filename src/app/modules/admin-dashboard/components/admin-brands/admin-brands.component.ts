@@ -67,5 +67,4 @@ export class AdminBrandsComponent implements OnInit, OnDestroy {
     this.showedBrands = this.listBrand;
     this.search = '';
   }
-
 }

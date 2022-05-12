@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IBrandModel } from 'src/app/models/i-brand-model';
@@ -25,13 +25,14 @@ class ImageSnippet {
   templateUrl: './car-item-edit.component.html',
   styleUrls: ['./car-item-edit.component.scss']
 })
-export class CarItemEditComponent implements OnInit {
+export class CarItemEditComponent implements OnInit{
   addProductForm!: FormGroup;
   selectedFile!: ImageSnippet;
   previewImg!: any;
   listBrand!: IBrandModel[];
   categories!: ICategoryDTOModel[];
   imgId = 0;
+  currentTimestamp = this.getTimeStamp();
 
   constructor(
     public dialogRef: MatDialogRef<CarItemEditComponent>,
@@ -65,7 +66,7 @@ export class CarItemEditComponent implements OnInit {
   getLogoImg(): void {
     this.product?.imageDTOs?.forEach((img: IImageDTO) => {
       if (img.type == 'thumbnail') {
-        this.previewImg.style.backgroundImage = `url(${environment.apiPath}/images/${img.id}?q=${this.getTimeStamp()})`;
+        this.previewImg.style.backgroundImage = `url(${environment.apiPath}/images/${img.id}?q=${this.currentTimestamp})`;
         this.previewImg.style.backgroundSize = '100% 100%';
         this.imgId = img.id ? img.id : 0;
       }
@@ -140,6 +141,8 @@ export class CarItemEditComponent implements OnInit {
         }
         if(this.imgId != 0) {
           this.updateImage(this.imgId);
+        } else {
+          this.uploadImage(body);
         }
       } else {
         this.dialogRef.close(false);
@@ -180,11 +183,13 @@ export class CarItemEditComponent implements OnInit {
   }
 
   uploadImage(body: any) {
+    this.currentTimestamp = this.getTimeStamp();
     if (this.selectedFile?.pending) {
       this.imageService.uploadImage(this.selectedFile.file, body).subscribe(
         res => {
           this.onSuccess(),
-          this.dialogRef.close(true)
+          this.dialogRef.close(true),
+          this.getLogoImg();
         },
         err => {
           console.log(err);

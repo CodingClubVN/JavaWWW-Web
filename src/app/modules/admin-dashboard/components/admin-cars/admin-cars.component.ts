@@ -65,9 +65,4 @@ export class AdminCarsComponent implements OnInit {
         this.notifyService.error('Thất bại', 'Thất bại');
     });
   }
-
-  getTimeStamp() {
-    return new Date().getTime();
-  }
-
 }

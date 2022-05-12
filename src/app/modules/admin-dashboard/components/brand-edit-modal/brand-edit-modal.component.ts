@@ -26,6 +26,7 @@ export class BrandEditModalComponent implements OnInit {
   selectedFile!: ImageSnippet;
   previewImg!: any;
   imgId: number = 0;
+  currentTimeStamp = this.getTimeStamp();
 
   constructor(
     public dialogRef: MatDialogRef<BrandEditModalComponent>,
@@ -53,7 +54,7 @@ export class BrandEditModalComponent implements OnInit {
   getLogoImg(): void {
     this.brand?.imageDTOs?.forEach((img: IImageDTO) => {
       if (img.type == 'logo') {
-        this.previewImg.style.backgroundImage = `url(${environment.apiPath}/images/${img.id}?q=${this.getTimeStamp()})`;
+        this.previewImg.style.backgroundImage = `url(${environment.apiPath}/images/${img.id}?q=${this.currentTimeStamp})`;
         this.previewImg.style.backgroundSize = '100% 100%';
         this.imgId = img.id ? img.id : 0;
       }
@@ -114,6 +115,8 @@ export class BrandEditModalComponent implements OnInit {
         }
         if(this.imgId !== 0) {
           this.updateImage(this.imgId);
+        } else {
+          this.uploadImage(body);
         }
       } else {
         this.dialogRef.close(false);
@@ -156,12 +159,14 @@ export class BrandEditModalComponent implements OnInit {
   }
 
   updateImage(id: number) {
+    this.currentTimeStamp = this.getTimeStamp();
     if (this.selectedFile?.pending) {
       this.imageService.updateImage(this.selectedFile.file, id).subscribe(
         res => {
           this.onSuccess(),
-            this.dialogRef.close(true)
-        },
+            this.dialogRef.close(true),
+            this.getLogoImg()
+      },
         err => {
           this.onError(),
             this.dialogRef.close(false)

@@ -1,6 +1,6 @@
 <div class="w-100 bg-light rounded rounded-3 p-2" type="button">
   <div *ngIf="logoImg?.type == 'logo'; else noLogo" class="w-100 h-100 ratio ratio-1x1 bg-light rounded rounded-3 text-dark">
-    <img [src]="apiPath + '/images/' + logoImg.id + '?q=' + getTimeStamp().toString()" alt="logo" class="w-100 ratio ratio-1x1 rounded rounded-3" style=""> 
+    <img [src]="apiPath + '/images/' + imageURL" alt="logo" class="w-100 ratio ratio-1x1 rounded rounded-3" > 
   </div>
   <ng-template #noLogo>
     <div class="w-100 h-100 ratio ratio-1x1 bg-warning rounded rounded-3 text-dark"></div>

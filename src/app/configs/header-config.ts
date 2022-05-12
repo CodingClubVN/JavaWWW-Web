@@ -4,7 +4,7 @@ export const HeaderConfig: { menu: ILink[] } = {
   menu: [
     {
       name: 'Các dòng xe',
-      url: '/cars',
+      url: '/car',
       icon: 'fa fa-car',
       subMenu: [
         // {
@@ -12,12 +12,12 @@ export const HeaderConfig: { menu: ILink[] } = {
         //   url: '/all',
         // },
         {
-          name: 'Truyền động Hybrid',
-          url: '/hybrid',
+          name: 'Xe SUV',
+          url: '/suv',
         },
         {
-          name: 'Truyền động điện',
-          url: '/electric',
+          name: 'Xe coupe',
+          url: '/coupe',
         },
         {
           name: 'Xe Hatchback',

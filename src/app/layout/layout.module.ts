@@ -23,6 +23,10 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { OrderMeComponent } from './components/order-me/order-me.component';
 import { OrderDetailModalComponent } from './components/order-me/component/order-detail-modal/order-detail-modal.component';
 import { AdvisoryBrochureComponent } from './components/advisory-brochure/advisory-brochure.component';
+import { SuvInfoComponent } from './components/suv-info/suv-info.component';
+import { CoupeComponent } from './components/coupe/coupe.component';
+import { HatchbackComponent } from './components/hatchback/hatchback.component';
+import { SedanComponent } from './components/sedan/sedan.component';
 
 
 @NgModule({
@@ -42,6 +46,10 @@ import { AdvisoryBrochureComponent } from './components/advisory-brochure/adviso
     OrderMeComponent,
     OrderDetailModalComponent,
     AdvisoryBrochureComponent,
+    SuvInfoComponent,
+    CoupeComponent,
+    HatchbackComponent,
+    SedanComponent,
   ],
   imports: [
     CommonModule,

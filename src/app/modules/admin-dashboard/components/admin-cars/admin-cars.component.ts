@@ -30,7 +30,7 @@ export class AdminCarsComponent implements OnInit {
   }
 
   onSearch() {
-    const result = this.listProducts.filter(product => product.name?.includes(this.search));
+    const result = this.listProducts.filter(product => product.name?.toLowerCase().includes(this.search.toLowerCase()) || product.brandDTO?.name.toLowerCase().includes(this.search.toLowerCase()));
     this.showedProduct = result;
   }
 
@@ -65,6 +65,4 @@ export class AdminCarsComponent implements OnInit {
         this.notifyService.error('Thất bại', 'Thất bại');
     });
   }
-
-
 }

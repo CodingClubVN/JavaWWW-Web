@@ -36,9 +36,9 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
 
   onSearch() {
     const result = this.listOrders.filter(order => 
-      order.user?.firstName.toLowerCase().includes(this.search) ||
-      order.user?.lastName.toLowerCase().includes(this.search) ||
-      order.user?.telephone.toLowerCase().includes(this.search)
+      order.user?.firstName.toLowerCase().includes(this.search.toLowerCase()) ||
+      order.user?.lastName.toLowerCase().includes(this.search.toLowerCase()) ||
+      order.user?.telephone.toLowerCase().includes(this.search.toLowerCase())
     );
     this.showedOrders = result;
   }

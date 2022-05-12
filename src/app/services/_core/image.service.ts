@@ -28,4 +28,13 @@ export class ImageService {
     );
   }
 
+  updateImage(image: File, imageId: number): Observable<any> {
+    const path = `${environment.apiPath}/images/update/${imageId}`;
+    const formData: FormData = new FormData();
+    formData.append('file', image, image.name); 
+    return this.apiService.postFormData(path, formData).pipe(
+      map((res: HttpResponse<any>) => console.log(res)),
+    );
+  }
+
 }

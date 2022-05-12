@@ -24,9 +24,9 @@ export class EditUserModalComponent implements OnInit {
   }
   initProductForm(): FormGroup {
     return new FormGroup({
-      firstName: new FormControl(this.myUser.firstName ? this.myUser.firstName : '', Validators.required),
-      lastName: new FormControl(this.myUser.lastName ? this.myUser.lastName : '', Validators.required),
-      telephone: new FormControl(this.myUser.telephone ? this.myUser.telephone : '', Validators.required),
+      firstName: new FormControl(this.myUser.firstName ? this.myUser.firstName : '', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]),
+      lastName: new FormControl(this.myUser.lastName ? this.myUser.lastName : '', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]),
+      telephone: new FormControl(this.myUser.telephone ? this.myUser.telephone : '', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]),
       address: new FormControl(this.myUser.address ? this.myUser.address : '', Validators.required),
     })
   }
@@ -36,7 +36,19 @@ export class EditUserModalComponent implements OnInit {
       .subscribe(
         res => {
           this.dialogRef.close(true)
+        },error => {
+          this.dialogRef.close(false)
         }
       )
   }
+  isControlValid(formGroup: FormGroup, controlName: string): boolean {
+    const control = formGroup.controls[controlName];
+    return control.valid && (control.dirty || control.touched);
+  }
+
+  isControlInvalid(formGroup: FormGroup, controlName: string): boolean {
+    const control = formGroup.controls[controlName];
+    return control.invalid && (control.dirty || control.touched);
+  }
+
 }

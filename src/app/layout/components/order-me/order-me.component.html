@@ -1,0 +1,33 @@
+<div class="container my-5">
+  <div>
+    <h1>
+      Danh sách đơn hàng
+    </h1>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr class="text-center">
+      <th scope="col" class="text-light">#</th>
+      <th scope="col" class="text-light">Họ tên</th>
+      <th scope="col" class="text-light">Số điện thoại</th>
+      <th scope="col" class="text-light">Tổng tiền</th>
+      <th scope="col" class="text-light">Ngày đặt hàng</th>
+      <th scope="col" class="text-light">Trạng thái đơn hàng</th>
+      <th scope="col" class="text-light">Chức năng</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of this.listOrder, let i = index" class="text-center py-5">
+      <th scope="row">{{i+1}}</th>
+      <td>{{order?.user?.lastName}}{{order?.user?.firstName}}</td>
+      <td>{{order?.user?.address}}</td>
+      <td>{{order.createDate | date: 'short'}}</td>
+      <td>{{order.total}}</td>
+      <td>{{order.status}}</td>
+      <td>
+        <button class="btn btn-dark text-light" (click)="showDetail(order)">Xem chi tiết</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

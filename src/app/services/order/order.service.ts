@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {ICartModel} from "../../models/i-cart-model";
 import {environment} from "../../../environments/environment";
@@ -13,7 +13,9 @@ import {IOrderModel} from "../../models/i-order-model";
 })
 export class OrderService {
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {
+  }
+
   getListOrder(): Observable<IOrderModel[]> {
     const path = `${environment.apiPath}/${APIPath.order.list}`;
     return this.apiService.get(path).pipe(
@@ -35,7 +37,7 @@ export class OrderService {
 
   updateOrderStatus(id: number, status: string) {
     const path = `${environment.apiPath}/${APIPath.order.updateStatus}/${id}`;
-    return this.apiService.put(path, { status }).pipe(
+    return this.apiService.put(path, {status}).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
       })
@@ -46,6 +48,16 @@ export class OrderService {
     const path = `${environment.apiPath}/${APIPath.order.new}`;
     return this.apiService.post(path, order).pipe(
       map((res: HttpResponse<any>) => {
+        return res.body;
+      })
+    )
+  }
+
+  getOrderMe(): Observable<IOrderModel[]> {
+    const path = `${environment.apiPath}/${APIPath.order.me}`;
+    return this.apiService.get(path).pipe(
+      map((res: HttpResponse<any>) => {
+        console.log(res);
         return res.body;
       })
     )

@@ -102,7 +102,7 @@ export const HeaderConfig: { menu: ILink[] } = {
         },
         {
           name: 'Bảng giá & brochure',
-          url: '/prices'
+          url: '/brochure'
         }
       ]
     },

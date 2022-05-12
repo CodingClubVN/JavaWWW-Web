@@ -96,6 +96,7 @@ export class CartComponent implements OnInit {
     this.orderService.newCartDetail(iOrderModel)
       .subscribe(res => {
           this.notifyService.success('Đặt hàng thành công');
+          this.total = 0;
           this.removeAll();
         },
         error => {

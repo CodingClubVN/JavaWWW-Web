@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from 'src/app/services/auth/auth.service';
 import {StorageService} from "src/app/services/storage/storage.service";
 import {tap} from "rxjs";
+import {NotifyService} from "../../../../services/notify/notify.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private notifyService: NotifyService
   ) {
     this.loginForm = this.initLoginForm();
   }
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           console.log(error);
+          this.notifyService.error('Đăng nhập thất bại');
         });
   }
 }

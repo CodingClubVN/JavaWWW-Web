@@ -32,7 +32,7 @@
                     </div>
                   </div>
                   <div class="ms-md-3 d-inline-block align-middle">
-                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle text-decoration-none">{{item.productDTO?.name}}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Hãng sản xuất: Xe điện</span>
+                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle text-decoration-none">{{item.productDTO?.name}}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Hãng sản xuất: {{item.productDTO?.brandDTO?.name}}</span>
                   </div>
                 </div>
               </th>
@@ -51,7 +51,7 @@
       <div class="col-lg-6">
         <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Địa chỉ</div>
         <div class="p-4">
-          <p class="font-italic mb-4">Vui lòng nhập địa chỉ giao hàng để chúng tôi có thể vận chuyển hàng đến cho bạn</p>
+          <p class="font-italic mb-4">Vui lòng nhập địa chỉ giao hàng để chúng tôi có thể vận chuyển hàng đến cho bạn bạn có thể để trống nếu địa chỉ bạn cập nhật ở tài khoản bạn là đúng</p>
           <div class="input-group mb-4 border rounded-pill p-2">
             <input type="text" placeholder="Địa chỉ giao hàng" aria-describedby="button-addon3" class="form-control border-0" [(ngModel)]="address">
             <div class="input-group-append border-0"></div>
@@ -63,10 +63,10 @@
         <div class="p-4">
           <p class="font-italic mb-4">Dưới đây là tổng chi phí cho giỏ hàng của bạn. Nếu bạn thanh toán online vui lòng đợi nhân viên của chúng tôi liên hệ trước khi thanh toán.</p>
           <ul class="list-unstyled mb-4">
-            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền sản phẩm </strong><strong>{{this.total | currency: 'VND'}}</strong></li>
+            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền sản phẩm </strong><strong>{{this.total | currency: 'USD'}}</strong></li>
             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Thuế</strong><strong>$0.00</strong></li>
             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền</strong>
-              <h5 class="font-weight-bold">{{this.total | currency: 'USD'}}</h5>
+              <h5 class="font-weight-bold text-danger">{{this.total | currency: 'USD'}}</h5>
             </li>
           </ul>
           <button class="btn btn-dark py-2 px-3 btn-block btn-main" (click)="submitOrder()">Thanh toán</button>

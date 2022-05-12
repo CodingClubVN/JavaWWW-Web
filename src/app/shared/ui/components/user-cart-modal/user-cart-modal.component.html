@@ -12,10 +12,11 @@
         <div>
           <p class="text-bold text-dark p-0">{{ item.productDTO?.name }}</p>
           <div class="item-quantity-control">
-            <button class="btn btn-transparent text-primary py-0 px-0">-</button>
+<!--            <button class="btn btn-transparent text-primary py-0 px-0">-</button>-->
+            <span class="text-dark">SL:</span>
             <input type="number" minlength="1" maxlength="2" min="1" max="99" [(ngModel)]="item.quantity"
-                   class="border-0 text-muted p-0 d-inline-block bg-light mx-2 text-center">
-            <button class="btn btn-transparent text-danger py-0 px-0">+</button>
+                   class="border-0 text-muted p-0 d-inline-block bg-light mx-2 text-center" disabled>
+<!--            <button class="btn btn-transparent text-danger py-0 px-0">+</button>-->
           </div>
         </div>
         <p class="text-dark p-0">{{ item.productDTO?.price| currency:'USD':'symbol':'4.2-2' }}</p>

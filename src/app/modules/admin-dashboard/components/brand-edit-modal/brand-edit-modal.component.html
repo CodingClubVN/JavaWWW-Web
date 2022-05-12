@@ -11,20 +11,52 @@
     </div>
     <form [formGroup]="addBrandForm" class="col-md-12 col-lg-7">
       <div class="form-floating mb-3">
-        <input formControlName="name" type="text" class="form-control text-dark" id="name" placeholder="Tên">
+        <input formControlName="name" type="text" class="form-control text-dark" id="name" placeholder="Tên" 
+          [class.is-valid]="isControlValid(addBrandForm, 'name')"
+          [class.is-invalid]="isControlInvalid(addBrandForm, 'name')">
         <label for="name" class="text-dark">Tên</label>
+        <div *ngIf="isControlValid(addBrandForm, 'name')" class="unset-color valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addBrandForm, 'name')" class="unset-color invalid-feedback">
+          Tên hãng bao gồm chữ và số
+        </div>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="country" type="text" class="form-control text-dark" id="country" placeholder="Quốc gia">
+        <input formControlName="country" type="text" class="form-control text-dark" id="country" placeholder="Quốc gia"
+          [class.is-valid]="isControlValid(addBrandForm, 'country')"
+          [class.is-invalid]="isControlInvalid(addBrandForm, 'country')">
         <label for="country" class="text-dark">Quốc gia</label>
+        <div *ngIf="isControlValid(addBrandForm, 'country')" class="unset-color valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addBrandForm, 'country')" class="unset-color invalid-feedback">
+          Quốc gia bao gồm chữ
+        </div>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="founderYear" type="text" class="form-control text-dark" id="founderYear" placeholder="Năm thành lập">
+        <input formControlName="founderYear" type="text" class="form-control text-dark" id="founderYear" placeholder="Năm thành lập"
+          [class.is-valid]="isControlValid(addBrandForm, 'founderYear')"
+          [class.is-invalid]="isControlInvalid(addBrandForm, 'founderYear')">
         <label for="founderYear" class="text-dark">Năm thành lập</label>
+        <div *ngIf="isControlValid(addBrandForm, 'founderYear')" class="unset-color valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addBrandForm, 'founderYear')" class="unset-color invalid-feedback">
+          Năm thành lập phải là số từ 1800 - năm hiện tại
+        </div>
       </div>
       <div class="form-floating">
-        <textarea formControlName="description" class="form-control text-dark" placeholder="Thông tin" id="description" style="height: 100px;"></textarea>
+        <textarea formControlName="description" class="form-control text-dark" placeholder="Thông tin" id="description" style="height: 100px;"
+          [class.is-valid]="isControlValid(addBrandForm, 'description')"
+          [class.is-invalid]="isControlInvalid(addBrandForm, 'description')"></textarea>
         <label for="description" class="text-dark">Thông tin</label>
+        <div *ngIf="isControlValid(addBrandForm, 'description')" class="unset-color valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addBrandForm, 'description')" class="unset-color invalid-feedback">
+        Thông tin bao gồm chữ và số
+        </div>
       </div>
     </form>
   </div>
@@ -33,6 +65,6 @@
   <button class="btn btn-danger me-2" (click)="onNoClick()">Đóng</button>
   <button class="btn btn-info me-2" *ngIf="brand.id">Danh sách xe</button>
   <button class="btn btn-warning me-2" *ngIf="brand.id" (click)="onDelete()">Xóa</button>
-  <button class="btn btn-success" (click)="onSubmit()" *ngIf="!brand.id">Thêm</button>
-  <button class="btn btn-primary" (click)="onUpdate()" *ngIf="brand.id">Cập nhật</button>
+  <button class="btn btn-success" [disabled]="!addBrandForm.valid" (click)="onSubmit()" *ngIf="!brand.id">Thêm</button>
+  <button class="btn btn-primary" [disabled]="!addBrandForm.valid" (click)="onUpdate()" *ngIf="brand.id">Cập nhật</button>
 </div>

@@ -70,7 +70,7 @@
         </div>
         <div *ngIf="isUserPanelOpen && isLoggedIn"
              class="shadow-lg bg-body position-absolute rounded rounded-3 bg-light user-panel-control p-3">
-          <button class="btn btn-secondary w-100 text-center mb-2" [routerLink]="['/auth', 'register']"
+          <button class="btn btn-secondary w-100 text-center mb-2" [routerLink]="['/user']"
                   (click)="isUserPanelOpen = false">
             <span class="w-100 navbar-toggler-icon d-flex justify-content-center align-items-center">
               Tài khoản

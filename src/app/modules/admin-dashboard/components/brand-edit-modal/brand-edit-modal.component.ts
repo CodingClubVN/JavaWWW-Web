@@ -44,10 +44,10 @@ export class BrandEditModalComponent implements OnInit {
 
   initForm(): FormGroup {
     return new FormGroup({
-      name: new FormControl(this.brand.name, Validators.required),
-      country: new FormControl(this.brand.country, Validators.required),
-      founderYear: new FormControl(this.brand.founderYear, Validators.required),
-      description: new FormControl(this.brand.description, Validators.required)
+      name: new FormControl(this.brand.name, [Validators.required, Validators.pattern(/^[a-zA-Z0-9-ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý,\. ]*$/)]),
+      country: new FormControl(this.brand.country, [Validators.required, Validators.pattern(/^[a-zA-Z-ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý,\. ]*$/)]),
+      founderYear: new FormControl(this.brand.founderYear, [Validators.required, Validators.min(1800), Validators.max(2022), Validators.pattern(/^[0-9]{4}$/)]),
+      description: new FormControl(this.brand.description, [Validators.required, Validators.pattern(/^[a-zA-Z0-9-ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý,\. ]*$/)])
     })
   }
 
@@ -183,4 +183,13 @@ export class BrandEditModalComponent implements OnInit {
     return new Date().getTime().toString();
   }
 
+  isControlValid(formGroup: FormGroup, controlName: string): boolean {
+    const control = formGroup.controls[controlName];
+    return control.valid && (control.dirty || control.touched);
+  }
+
+  isControlInvalid(formGroup: FormGroup, controlName: string): boolean {
+    const control = formGroup.controls[controlName];
+    return control.invalid && (control.dirty || control.touched);
+  }
 }

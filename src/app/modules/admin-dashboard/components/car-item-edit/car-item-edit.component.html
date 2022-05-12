@@ -11,32 +11,76 @@
     </div>
     <form [formGroup]="addProductForm" class="col-md-12 col-lg-7">
       <div class="form-floating mb-3 text-dark">
-        <input formControlName="name" type="text" class="form-control text-dark" id="name" placeholder="Tên">
+        <input formControlName="name" type="text" class="form-control text-dark" id="name" placeholder="Tên"
+          [class.is-valid]="isControlValid(addProductForm, 'name')"
+          [class.is-invalid]="isControlInvalid(addProductForm, 'name')">
         <label for="name" class="text-dark">Tên</label>
+        <div *ngIf="isControlValid(addProductForm, 'name')" class="valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addProductForm, 'name')" class="invalid-feedback">
+          Tên hãng bao gồm chữ và số
+        </div>
       </div>
 			<div class="form-floating mb-3">
         <select formControlName="brandId" class="form-select text-dark" id="brandId" aria-label="hãng" style="color: black;">
           <option *ngFor="let brand of listBrand" [value]="brand.id"  class="text-dark">{{ brand.name }}</option>
         </select>
         <label for="brandId" class="text-dark">Hãng</label>
+        <div *ngIf="isControlValid(addProductForm, 'brandId')" class="valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addProductForm, 'brandId')" class="invalid-feedback">
+          Phải chọn hãng
+        </div>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="price" type="text" class="form-control text-dark" id="price" placeholder="Giá">
+        <input formControlName="price" type="text" class="form-control text-dark" id="price" placeholder="Giá" 
+        [class.is-valid]="isControlValid(addProductForm, 'price')"
+          [class.is-invalid]="isControlInvalid(addProductForm, 'price')">
         <label for="price" class="text-dark">Giá</label>
+        <div *ngIf="isControlValid(addProductForm, 'price')" class="valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addProductForm, 'price')" class="invalid-feedback">
+          Giá phải là số
+        </div>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="bodyType" type="text" class="form-control text-dark" id="bodyType" placeholder="Kiểu body">
+        <input formControlName="bodyType" type="text" class="form-control text-dark" id="bodyType" placeholder="Kiểu body" 
+        [class.is-valid]="isControlValid(addProductForm, 'bodyType')"
+          [class.is-invalid]="isControlInvalid(addProductForm, 'bodyType')">
         <label for="bodyType" class="text-dark">Kiểu body</label>
+        <div *ngIf="isControlValid(addProductForm, 'bodyType')" class="valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addProductForm, 'bodyType')" class="invalid-feedback">
+          Kiểu body bao gồm chữ và số
+        </div>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="fuelType" class="form-control text-dark" placeholder="Sử dụng nhiên liệu" id="fuelType">
+        <input formControlName="fuelType" class="form-control text-dark" placeholder="Sử dụng nhiên liệu" id="fuelType" 
+        [class.is-valid]="isControlValid(addProductForm, 'fuelType')"
+          [class.is-invalid]="isControlInvalid(addProductForm, 'fuelType')">
         <label for="fuelType" class="text-dark">Sử dụng nhiên liệu</label>
+        <div *ngIf="isControlValid(addProductForm, 'fuelType')" class="valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addProductForm, 'fuelType')" class="invalid-feedback">
+          Tên nhiên liệu bao gồm chữ và số
+        </div>
       </div>
       <div class="form-floating">
         <select formControlName="categoryId" class="form-select text-dark" id="categoryId" aria-label="Phân loại" style="color: black;">
           <option *ngFor="let category of categories" [value]="category.id" class="text-dark">{{ category.name }}</option>
         </select>
         <label for="categoryId" class="text-dark">Phân loại</label>
+        <div *ngIf="isControlValid(addProductForm, 'categoryId')" class="valid-feedback">
+          Hợp lệ
+        </div>
+        <div *ngIf="isControlInvalid(addProductForm, 'categoryId')" class="invalid-feedback">
+          Phải chọn phân loại
+        </div>
       </div>
     </form>
   </div>
@@ -44,6 +88,6 @@
 <div mat-dialog-actions class="float-end">
   <button class="btn btn-danger me-2" (click)="onNoClick()">Đóng</button>
   <button class="btn btn-warning me-2" *ngIf="product.id" (click)="onDelete()">Xóa</button>
-  <button class="btn btn-success" (click)="onSubmit()" *ngIf="!product.id">Thêm</button>
-  <button class="btn btn-primary" (click)="onUpdate()" *ngIf="product.id">Cập nhật</button>
+  <button class="btn btn-success" [disabled]="!addProductForm.valid" (click)="onSubmit()" *ngIf="!product.id">Thêm</button>
+  <button class="btn btn-primary" [disabled]="!addProductForm.valid" (click)="onUpdate()" *ngIf="product.id">Cập nhật</button>
 </div>

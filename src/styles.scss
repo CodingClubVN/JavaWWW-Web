@@ -141,3 +141,16 @@ modal-container {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.invalid-feedback {
+  color: #dc3545 !important;
+}
+
+.valid-feedback {
+  color: #198754 !important;
+}
+
+.unset-color {
+  color: unset;
+}
